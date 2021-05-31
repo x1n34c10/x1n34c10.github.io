@@ -1,17 +1,29 @@
 ---
-layout: single
-title: FastTcpScan - Go
-excerpt: "En el siguiente artículo os comparto la herramienta `FastTcpScan` que nos desarrollamos en la máquina `Hawk` de la plataforma [HackTheBox](https://hackthebox.eu). Esta herramienta consiste en un escáner que permite detectar de forma rápida y precisa los puertos TCP que una máquina tiene abiertos."
-date: 2020-01-31
-classes: wide
+title:  "Welcome to Jekyll!"
 header:
-  teaser: ![logo](https://user-images.githubusercontent.com/69093629/120221915-782ee700-c23f-11eb-92bc-f472aee1a4a8.jpg)
-  teaser_home_page: true
-categories:
-  - Scripting
+  teaser: "/assets/images/logo.jpeg"
+categories: 
+  - Jekyll
 tags:
-  - TCP Scan
-  - Go Golang
+  - update
 ---
 
-![](![logo](https://user-images.githubusercontent.com/69093629/120221915-782ee700-c23f-11eb-92bc-f472aee1a4a8.jpg))
+You'll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
+
+To add new posts, simply add a file in the `_posts` directory that follows the convention `YYYY-MM-DD-name-of-post.ext` and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.
+
+Jekyll also offers powerful support for code snippets:
+
+```ruby
+def print_hi(name)
+  puts "Hi, #{name}"
+end
+print_hi('Tom')
+#=> prints 'Hi, Tom' to STDOUT.
+```
+
+Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll's GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll Talk][jekyll-talk].
+
+[jekyll-docs]: http://jekyllrb.com/docs/home
+[jekyll-gh]:   https://github.com/jekyll/jekyll
+[jekyll-talk]: https://talk.jekyllrb.com/
