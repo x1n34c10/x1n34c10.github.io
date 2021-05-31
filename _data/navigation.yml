@@ -6,6 +6,8 @@ main:
     url: /about/
   - title: "Artículos"
     url: /year-archive/
+  - title: "Vulnerabilities"
+    url: /Vulnerabilities/
   - title: "Buscador"
     url: /buscador/
   - title: "Etiquetas"
