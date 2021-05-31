@@ -4,8 +4,6 @@ main:
     url: /
   - title: "About"
     url: /about/
-  - title: "Tags"
-    url: /tags/
   - title: "Artículos"
     url: /year-archive/
   - title: "Buscador"
