@@ -95,8 +95,8 @@ analytics:
 # Site Author
 author:
   name             : "Your Name"
-  avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "I am an **amazing** person."
+  avatar           : "https://raw.githubusercontent.com/WackyHacker/wackyhacker.github.io/master/logo1.png"
+  bio              : "Cybersecurity enthusiast & lover of *CTF* challenges."
   location         : "Somewhere"
   email            :
   links:
