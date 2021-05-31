@@ -1,11 +1,12 @@
 # main links
 main:
+  - title: "Home"
+    url: /
   - title: "About"
     url: /about/
   - title: "Artículos"
     url: /year-archive/
   - title: "Buscador"
     url: /buscador/
-  - title: "Sitemap"
-    url: /sitemap/
-    
+  - title: "Etiquetas"
+    url: /tags/
