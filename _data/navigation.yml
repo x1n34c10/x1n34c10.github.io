@@ -7,7 +7,7 @@ main:
   - title: "Artículos"
     url: /year-archive/
   - title: "Vulnerabilities"
-    url: /vulnerabilities/
+    url: /categories/#vulnerabilities
   - title: "Buscador"
     url: /buscador/
   - title: "Etiquetas"
