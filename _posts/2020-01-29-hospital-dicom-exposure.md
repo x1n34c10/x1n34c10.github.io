@@ -5,7 +5,7 @@ excerpt: "En el siguiente artículo os comparto la herramienta `FastTcpScan` que
 date: 2020-01-31
 classes: wide
 header:
-  teaser: /assets/images/logo.jpeg
+  teaser: logo.jpg
   teaser_home_page: true
 categories:
   - Scripting
@@ -14,4 +14,4 @@ tags:
   - Go Golang
 ---
 
-![](/assets/images/logo.jpeg)
+![](logo.jpg)
