@@ -40,17 +40,17 @@ Para la primera técnica vamos a hacer uso de “**Fluxion**”, una herramienta
 Su uso es muy sencillo, lo primero que debemos hacer es clonar el repositorio de GitHub [https://github.com/FluxionNetwork/fluxion] para descargar la herramienta en nuestro sistema Linux y ya podríamos empezar con la post-explotación.
 
 ```bash
-git clone https://github.com/FluxionNetwork/fluxion #Clonar el repositorio
+root@parrot:# git clone https://github.com/FluxionNetwork/fluxion #Clonar el repositorio
 ```
 
 Una vez clonada, entramos en la carpeta de la herramienta y ejecutamos el script hecho en bash llamado fluxion.sh.
 
 ```bash
-cd fluxion #Para acceder a la carpeta
+root@parrot:# cd fluxion #Para acceder a la carpeta
 
-chmod +x fluxion.sh #Dar permisos de ejecución al script
+root@parrot:# chmod +x fluxion.sh #Dar permisos de ejecución al script
 
-./fluxion.sh -i #Ejecucion del script && instalación de dependencias
+root@parrot:# ./fluxion.sh -i #Ejecucion del script && instalación de dependencias
 ``` 
 
 Así se vería la herramienta ejecutada:
