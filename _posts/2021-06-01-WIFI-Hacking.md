@@ -10,8 +10,10 @@ tags:
 ---
 
 En este articulo, nos centraremos en aprender como se pueden vulnerar Redes WI-FI con cifrado WPA/WPA2-PSK, y conseguir la contraseña de la misma. Para ello, os enseñare unos cuantos ataques muy interesantes que podéis efectuar siempre y cuando sea en un entrono controlado.
+
 Debéis contar con 3 condiciones anteriormente, tener un ordenador con un sistema Linux instalado (da igual cual), una antena que acepte el modo monitor, y las ganas de aprender, la ultima es muy importante!!!.
-“**WI-FI**”, en palabras resumidas, es una tecnología que permite la conexión de distintos dispositivos a ella, para brindarles servicios de Internet (Puede no tener Internet). En las Redes WI-FI existen distintos tipos de cifrados que se encargan de encriptar la contraseña y así que no sea “crackeada” tan fácilmente por terceros, hasta el día de hoy las Redes WI-FI cuentan con 3 tipos de cifrados diferentes, uno mas seguro que otro, “(menos seguro) WEP” “**WPA**” “**WPA2**” el primero esta casi obsoleto porque es antiguo y su seguridad es pésima, y los dos últimos son los que mas se utilizan a día de hoy.
+
+“**WI-FI**”, en palabras resumidas, es una tecnología que permite la conexión de distintos dispositivos a ella, para brindarles servicios de Internet (Puede no tener Internet). En las Redes WI-FI existen distintos tipos de cifrados que se encargan de encriptar la contraseña y así que no sea “crackeada” tan fácilmente por terceros, hasta el día de hoy las Redes WI-FI cuentan con 3 tipos de cifrados diferentes, uno mas seguro que otro, “(**menos seguro**) WEP” “**WPA**” “**WPA2**” el primero esta casi obsoleto porque es antiguo y su seguridad es pésima, y los dos últimos son los que mas se utilizan a día de hoy.
 
 Bueno ahora que ya sabemos ¿Qué es una Red WI-FI?, y ¿Qué tipos de cifrados las componen?, vayamos a lo que nos interesa, ¿Cómo se puede Crackear una Red WI-FI?.
 Para ello voy a empezar hablando de dos técnicas muy utilizadas en en el cracking de Redes WI-FI (la primera suele ser mas efectiva).
@@ -20,9 +22,9 @@ El Phishing y la Fuerza bruta de contraseñas, la primera consiste en engañar a
 Antes de empezar la ejecución de estas dos técnicas, un bonus para falsificar vuestra MAC y sea mas difícil detectar quien esta por detrás, ejecutáis lo siguiente haciendo uso de la herramienta “**macchanger**”:
 
 ```bash
-~$ apt install macchanger -y #Desargar la herramienta en caso de no tenerla
+root@parrot:# apt install macchanger -y #Desargar la herramienta en caso de no tenerla
 
-~$ macchanger -r <InferfazDeRed> #Ex: macchanger -r wlan0
+root@parrot:# macchanger -r <InferfazDeRed> #Ex: macchanger -r wlan0
 ```
 
 El segundo comando anterior lo que hace es cambiar la MAC de vuestra interfaz de red a una aleatoria.
@@ -57,15 +59,15 @@ Así se vería la herramienta ejecutada:
 <img src="https://miro.medium.com/max/875/1*PRrbdDTGc-WiV47hQL4T0w.png">
 </p>
 
-Como vemos tenemos dos opciones, la primera es para crear el Portal Cautivo, y la segunda es la captura del “handshake”, el apretón de manos o mas conocido como “handshake” no es mas que el intercambio de información privada y se captura en la “deauthentication” entre el cliente y el AP.
+Como vemos tenemos dos opciones, la primera es para crear el Portal Cautivo, y la segunda es la captura del “**handshake**”, el apretón de manos o mas conocido como “**handshake**” no es mas que el intercambio de información privada y se captura en la “**deauthentication**” entre el cliente y el AP.
 
 <p align="center">
 <img src="https://miro.medium.com/max/610/1*lryoPcxhFhlZLWl6bN1sfw.png">
 </p>
 
-Todo esto nos lo automatiza “Fluxion”, pero se puede hacer perfectamente manualmente con “aireplay-ng”, hablaremos de esta maravillosa herramienta mas adelante.
+Todo esto nos lo automatiza “**Fluxion**”, pero se puede hacer perfectamente manualmente con “**aireplay-ng**”, hablaremos de esta maravillosa herramienta mas adelante.
 
-Una vez elegida la opción 2 (Handshake Snooper), la herramienta nos empezara a iniciar algo llamado modo monitor, este modo nos permite capturar paquetes que viajan por la red y poder hacer lo queramos con ellos, sin una antena que acepte este modo no podremos llegar muy lejos, al final del articulo dejare unos links para que podáis adquirir una antena que acepte este modo.
+Una vez elegida la opción 2 (**Handshake Snooper**), la herramienta nos empezara a iniciar algo llamado modo monitor, este modo nos permite capturar paquetes que viajan por la red y poder hacer lo queramos con ellos, sin una antena que acepte este modo no podremos llegar muy lejos, al final del articulo dejare unos links para que podáis adquirir una antena que acepte este modo.
 
 Ahora nos va a pedir que elijamos el tipo de frecuencia de redes WI-FI a escanear, elegimos la opción correspondiente a nuestra antena, si no tenemos claro a que frecuencia puede conectarse nuestra antena elegimos la opción 3 y ya esta no hay problema.
 
@@ -87,23 +89,23 @@ Nos pedirá que elijamos una interfaz de red, aquí utilizaremos la opción nume
 <img src="https://miro.medium.com/max/640/1*rYsfoEiJ5VqXzyGenw4T9A.png">
 </p>
 
-Seguido nos pedirá el tipo de ataque a utilizar para la captura del handshake, recomiendo utilizar la segunda opción (aireplay-ng deauthtentication).
+Seguido nos pedirá el tipo de ataque a utilizar para la captura del handshake, recomiendo utilizar la segunda opción (**aireplay-ng deauthtentication**).
 
 <p align="center">
 <img src="https://miro.medium.com/max/620/1*4OMcIEG8EtLvgHvoGLCvMg.png">
 </p>
 
-Para el método de verificación recomiendo utilizar “Pyrit”.
+Para el método de verificación recomiendo utilizar "**Pyrit**".
 
 <p align="center">
 <img src="https://miro.medium.com/max/601/1*CftwVsK-AoPoghEaUy6W1g.png">
 </p>
 
-Nos pedirá el tiempo a esperar por cada envió de paquetes para la “deauthentication”, elegimos la que nos convenga, yo utilizo 30s.
+Nos pedirá el tiempo a esperar por cada envió de paquetes para la “**deauthentication**”, elegimos la que nos convenga, yo utilizo 30s.
 
-Y finalmente nos va a preguntar en caso de que ocurra… elegimos la segunda opción (recomendable).
+Y finalmente nos va a preguntar en caso de que ocurra… elegimos la segunda opción (**recomendable**).
 
-Se nos abrirán 3 ventanas a la vez, cada una hace una función diferente, la de abajo a la derecha es la que se encarga de enviar paquetes repetidamente hasta capturar el “handshake”, la de abajo a la izquierda su función es capturar el “handshake”, y la ultima, que esta arriba, da información de cuantos clientes están autenticados en la red, a parte de su MAC y mas información.
+Se nos abrirán 3 ventanas a la vez, cada una hace una función diferente, la de abajo a la derecha es la que se encarga de enviar paquetes repetidamente hasta capturar el “**handshake**”, la de abajo a la izquierda su función es capturar el “**handshake**”, y la ultima, que esta arriba, da información de cuantos clientes están autenticados en la red, a parte de su MAC y mas información.
 
 <p align="center">
 <img src="https://miro.medium.com/max/488/1*is6YbO32E8PbmQNVidRD3w.png">   
@@ -117,13 +119,13 @@ Se nos abrirán 3 ventanas a la vez, cada una hace una función diferente, la de
 <img src="https://miro.medium.com/max/483/1*qqKcBYHMSRMz1_iT9XbvtQ.png">
 </p>
 
-Una vez capturado el “handshake” seria cuestión de pulsar CTRL + C, y seleccionar la opción 1 (Portal Cautivo).
+Una vez capturado el “**handshake**” seria cuestión de pulsar CTRL + C, y seleccionar la opción 1 (**Portal Cautivo**).
 
 <p align="center">
 <img src="https://miro.medium.com/max/1206/1*PRrbdDTGc-WiV47hQL4T0w.png">
 </p>
 
-Si nos dice “Fluxion is targetting the access point above” solo escribimos “Y” y problema arreglado, seguido nos dirá que seleccionemos nuestra interfaz de red, es muy importante seleccionar la opción que pone “Skip” ya que la seleccionaremos mas adelante.
+Si nos dice “Fluxion is targetting the access point above” solo escribimos “Y” y problema arreglado, seguido nos dirá que seleccionemos nuestra interfaz de red, es muy importante seleccionar la opción que pone “**Skip**” ya que la seleccionaremos mas adelante.
 
 Es probable que nos diga “This attack has already been configured”, aquí solo seria cuestión de seleccionar la opción 2 (Reset attack).
 
@@ -143,7 +145,7 @@ Y así se vería el ataque en acción:
 <img src="https://miro.medium.com/max/875/1*2B_HH2lrKeQkxqhaLUFlTA.png">
 </p>
 
-# Segunda técnica
+## Segunda técnica
 
 En esta segunda técnica vamos a hacer uso de la suite de “Aircrack-ng”.
 
@@ -158,25 +160,25 @@ En esta ocasión utilizaremos 3 herramientas de la suite de “Aircrack-ng” ma
 Lo primordial para el hacking de redes WI-FI es poner la interfaz de red en modo monitor, para ello primero debemos matar a los procesos que nos lo impiden, suelen ser el dos, el primero “wpa_supplicant” y el segundo “dhcclient” para matarlos hacemos uso del siguiente comando:
 
 ```bash
-airmon-ng check kill
+root@parrot:# airmon-ng check kill
 ```
 
 o si los queremos matar uno por uno:
 
 ```bash
-~$ aimon-ng kill <PID> o <NombreDeProceso>
+root@parrot:# aimon-ng kill <PID> o <NombreDeProceso>
 ```
 
 Una vez matados los procesos perderemos la conexión a Internet, para no perder la conexión hay que conectar el cable a la entrada RJ-45, ahora solo faltaría poner nuestra interfaz en modo monitor, para ello hacemos uso del comando:
 
 ```bash
-~$ airmon-ng start <InterfazDeRed> #Ex: airmon-ng wlan0
+root@parrot:# airmon-ng start <InterfazDeRed> #Ex: airmon-ng wlan0
 ```
 
 Para verificar que nuestra de interfaz de red esta en modo monitor ejecutamos:
 
 ```bash
-~$ iwconifig
+root@parrot:# iwconifig
 ```
 
 Si nos sale el nombre de nuestra interfaz de red junto a “mon”, quiere decir que vamos por buen camino.
@@ -186,7 +188,7 @@ Si nos sale el nombre de nuestra interfaz de red junto a “mon”, quiere decir
 Vamos a empezar escaneando la red haciendo uso de “airodump-ng” con la siguiente sintaxis:
 
 ```bash
-~$ airodump-ng <InterfazDeRed+mon> #Ex: airodump-ng wlan0mon
+root@parrot:# airodump-ng <InterfazDeRed+mon> #Ex: airodump-ng wlan0mon
 ```
 
 <p align="center">
@@ -196,13 +198,13 @@ Vamos a empezar escaneando la red haciendo uso de “airodump-ng” con la sigui
 Una vez ya tengáis bastantes redes a vuestra disposición una gran variedad de redes escaneadas, ejecutáis este comando a la red a atacar:
 
 ```bash
-airodump-ng -c <canal> --bssid <BSSID> -w psk <ESSID> #Ex: airodump-ng -c --bssid 90:CD:B6:83:43:B2 -w psk Oppo
+root@parrot:# airodump-ng -c <canal> --bssid <BSSID> -w psk <ESSID> #Ex: airodump-ng -c --bssid 90:CD:B6:83:43:B2 -w psk Oppo
 ``` 
   
 Ahora necesitamos hacer la “deauthentication”, para ello vamos a hacer uso de la herramienta “aireplay-ng” esta herramienta nos va a permitir enviar paquetes a un cliente en especifico, o a toda la red si así lo preferimos para hacer la captura del apretón de manos, su sintaxis es la siguiente:
 
 ```bash
-aireplay-ng <0-”PaquetesAenviar”> -a <BSSID> -c <BSSIDClienteEspecifico> <InterfazDeRed> #aireplay-ng 0-10 -a 90:CD:B6:83:43:B2 -c 43:53:D4:34:D5:54 wlan0mon
+root@parrot:# aireplay-ng <0-”PaquetesAenviar”> -a <BSSID> -c <BSSIDClienteEspecifico> <InterfazDeRed> #aireplay-ng 0-10 -a 90:CD:B6:83:43:B2 -c 43:53:D4:34:D5:54 wlan0mon
 ```
 
 **Nota:** *Puede no ser cuestión de tiempo la captura del “handshake”
@@ -212,7 +214,7 @@ Ahora si vamos a utilizar “Aircrack-ng”, la navaja suiza del hacking de Rede
 Con el siguiente comando empezaríamos el ataque:
 
 ```bash
-aircrack-ng -w /usr/share/wordlists/rockyou.txt -b <BSSID> psk*.cap
+root@parrot:# aircrack-ng -w /usr/share/wordlists/rockyou.txt -b <BSSID> psk*.cap
 ``` 
 
 **Nota:** *Este método no es tan efectivo como el primero, ya que este hace uso de un diccionario. Si la contraseña es robusta es posible que no se llegue a crackear, en cambio el otro da igual la complejidad que tenga la contraseña, es más por el sentido común de la víctima.
