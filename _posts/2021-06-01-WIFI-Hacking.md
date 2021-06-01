@@ -9,6 +9,10 @@ tags:
   - Aircrack-ng
 ---
 
+<p align="center">
+<img src="https://miro.medium.com/max/1875/1*eFAO_PfEpLHCDtMTyrrrbg.png">
+</p>
+
 En este articulo, nos centraremos en aprender como se pueden vulnerar Redes WI-FI con cifrado WPA/WPA2-PSK, y conseguir la contraseña de la misma. Para ello, os enseñare unos cuantos ataques muy interesantes que podéis efectuar siempre y cuando sea en un entrono controlado.
 
 Debéis contar con 3 condiciones anteriormente, tener un ordenador con un sistema Linux instalado (da igual cual), una antena que acepte el modo monitor, y las ganas de aprender, la ultima es muy importante!!!.
