@@ -166,7 +166,7 @@ root@parrot:# airmon-ng check kill
 o si los queremos matar uno por uno:
 
 ```bash
-root@parrot:# aimon-ng kill <PID> o <NombreDeProceso>
+root@parrot:# airmon-ng kill <PID> o <NombreDeProceso>
 ```
 
 Una vez matados los procesos perderemos la conexión a Internet, para no perder la conexión hay que conectar el cable a la entrada RJ-45, ahora solo faltaría poner nuestra interfaz en modo monitor, para ello hacemos uso del comando:
