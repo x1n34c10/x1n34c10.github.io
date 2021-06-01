@@ -112,7 +112,7 @@ Se nos abrirán 3 ventanas a la vez, cada una hace una función diferente, la de
 </p>                                                                      
 
 <p align="center">
-<img src="https://miro.medium.com/max/479/1*xTsw6bg7-80NHadprgh6vQ.png"
+<img src="https://miro.medium.com/max/479/1*xTsw6bg7-80NHadprgh6vQ.png">
 </p>
 
 <p align="center">
