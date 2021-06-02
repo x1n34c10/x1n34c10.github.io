@@ -14,6 +14,7 @@ categories:
 tags:
   - Fluxion
   - Aircrack-ng
+  - Passwords
 ---
 
 <p align="center">
