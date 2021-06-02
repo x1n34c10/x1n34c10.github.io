@@ -10,7 +10,7 @@ header:
   teaser_home_page: true
   icon: "https://miro.medium.com/max/1875/1*eFAO_PfEpLHCDtMTyrrrbg.png"
 categories:
-  - WI-Fi
+  - Wireless
 tags:
   - Fluxion
   - Aircrack-ng
