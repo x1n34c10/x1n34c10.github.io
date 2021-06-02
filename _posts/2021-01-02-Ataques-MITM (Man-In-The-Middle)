@@ -1,0 +1,101 @@
+---
+title: "Ataques MITM (Man-In-The-Middle)"
+layout: single
+excerpt: Un día normal como cualquier otro, estas en casa con tu ordenador navegando por Internet, y te topas con una pagina que vende productos a muy buen precio,
+header:
+show_date: true
+classes: wide
+header:
+  teaser: "https://miro.medium.com/max/728/1*rr_YNN6Pf0ENYvvJ2l47QA.jpeg"
+  teaser_home_page: true
+  icon: "https://miro.medium.com/max/728/1*rr_YNN6Pf0ENYvvJ2l47QA.jpeg"
+categories:
+  - Vulnerabilities
+tags:
+  - Passwords
+  - MITM
+---
+
+<p align="center">
+<img src="https://miro.medium.com/max/728/1*rr_YNN6Pf0ENYvvJ2l47QA.jpeg">
+</p>
+
+Un día normal como cualquier otro, estas en casa con tu ordenador navegando por Internet, y te topas con una pagina que vende productos a muy buen precio, piensas que podría ser una gran oportunidad adquirir alguno de esos productos, pero ves que el certificado de la pagina no esta firmado, igualmente decides introducir tus datos bancarios para adquirirlos, y después te acuerdas de que tu Internet no estaba funcionando tan bien estos días.
+
+Pues déjame decirte que puede que estés siendo victima de un ataque “Man-In-The-Middle”, o mas conocidos por sus siglas MITM. Antes de explicar que herramientas usan y como las usan los hackers (BlackHat), voy a hacer un breve resumen de ¿Qué es un ataque de intermediario?.
+
+<p align="center">
+<img src="https://miro.medium.com/max/700/1*XGGpdazzmEeN_mneaUht3A.png">
+</p>
+
+Un ataque MITM, es un ataque en el que el hacker se pone entre medio de la conexión entre tu y el router y gracias a esto le permite la intercepción de paquetes que viajan por la red, ya sean contraseñas, fotografías etc.
+
+Se pueden conseguir hacer infinidad de ataques (peligrosos), el único limite aquí seria la imaginación del hacker y su conocimiento.
+
+Los hackers suelen elaborar estos ataques con mucho cuidado para no alertar a sus victimas, y sean pillados tan fácilmente.
+
+Seguro que ahora te estarás preguntando ¿Cómo pueden conseguir hacer este tipo de ataques?, pues en este articulo lo vamos a explicar detalladamente para que podáis hacer una prueba en vuestras redes (entornos controlados).
+
+Para ello vamos a hacer uso de una herramienta llamada “Wireshark” que la podéis descargar en Windows (también esta en Linux), utilizo esta porque hay personas que no están familiarizadas con Linux, o directamente no lo utilizan, por lo que esta herramienta puede ser una buena opción para empezar. Este es el link para que os la descarguéis: https://www.wireshark.org/#download . La descarga es muy sencilla solo seleccionáis el sistema operativo que os corresponda, ya sea Windows o Linux y lo bits que tiene, hecho esto ya la podréis abrir y empezar interceptar paquetes.
+
+Para los que no los sepan, “Wireshark” es una herramienta muy potente para la intercepción de paquetes en la red, se pueden hacer infinidad de cosas con ella, también decir que el ejemplo que voy a mostrar es sencillo y cualquiera lo puede hacer sin conocimientos previos.
+Una vez abierta la herramienta se vería así (en Linux similar):
+
+<p align="center">
+<img src="https://miro.medium.com/max/1828/1*MK_eTPjsbCKD8Q6XY94fOw.png">
+</p>
+
+Aquí seleccionamos WI-FI ya que es por donde queremos interceptar los paquetes.
+
+<p align="center">
+<img src="https://miro.medium.com/max/798/1*QBLV6-J7mHzeeuWcto5iTQ.png">
+</p>
+
+Ahora solo seria cuestión de dar clic en el logo pequeño de una aleta de tiburón que sale arriba a la izquierda.
+
+<p align="center">
+<img src="https://miro.medium.com/max/568/1*ZB7qXHYOP5J1D5_DypE75g.jpeg">
+</p>
+
+Enhorabuena!!, ya estaríais interceptando todos los paquetes que estan viajando por la red, además de la dirección IP del usuario que esta generando esos paquetes, otorga mucha mas información que podría ser de valor.
+
+<p align="center">
+<img src="https://miro.medium.com/max/1825/1*cN5Yz5_x-JEq2PFCw_FPkQ.png">
+</p>
+
+Aquí no os alarméis, ya que no hace falta entender todo lo que pone. Ahora bien, ¿Cómo intercepto contraseñas?
+
+Hay que hacer una pequeña pausa para aclarar algo importante, antes de empezar a capturar contraseñas, si tenéis un conocimiento básico o obsoleto sobre la herramienta, solo podréis capturar contraseñas que viajen por el protocolo http, ya que es un protocolo que transfiere vuestra información sin encriptarla, y seria bastante sencillo capturar las contraseñas e información privada por un atacante, de lo contrario https es un protocolo seguro, porque la información introducida en teoría debería viajar encriptada, digo en teoría porque se puede falsificar por una atacante bien experimentado o desencriptar-la teniendo conocimientos altos de criptografía.
+
+Identificar si los datos que introduces van encriptados o no, lo escribiré en un articulo aparte, ya que es un tema que da para hablar.
+
+Sigamos con la intercepción de las contraseñas. Una vez ya interceptando todo el trafico de red, nos dirigimos a alguna pagina de inicio de sesión que tenga un certificado no firmado, es decir http e introducimos credenciales (que no sean validas), por aquí os dejo una que encontré por internet, podéis hacer uso de ella si queréis [http://www.celfi.gob.ar/login].
+
+<p align="center">
+<img src="https://miro.medium.com/max/641/1*db6kwb5Ic_mLxodCJ5W_Jw.jpeg">
+</p>
+
+Como se ve en la foto anterior, no tiene el certificado firmado, ¿Esto que quiere decir?, Efectivamente, que podemos interceptar esa contraseña introducida por la victima, para hacerlo es bastante sencillo, seria cuestión de ir a “Wireshark” y filtrar por http.
+
+<p align="center">
+<img src="https://miro.medium.com/max/408/1*ECdGFMu8XfY22DkoIMKaaw.png">
+</p>
+
+Aquí solo nos filtrara los paquetes que han interceptados por http, para ver la contraseña hay que abrir un paquete que viaja por petición POST.
+
+<p align="center">
+<img src="https://miro.medium.com/max/700/1*-hgTVSENDcsHDkGLkHcv5Q.png">
+</p>
+
+Una vez abierto se vería algo similar a esto:
+
+<p align="center">
+<img src="https://miro.medium.com/max/1710/1*7ttUov9QMUZiprh_yvrL7A.png">
+</p>
+
+Bajáis con la barrita abajo del todo, y ahí en una pestaña llamada “HTML Form URL Encoded” dais clic en la flechita que esta a la izquierda, y ya podréis visualizar la contraseña en texto plano, en mi caso el email es “prueba@gmail.com” y la contraseña “prueba12345”.
+
+<p align="center">
+<img src="https://miro.medium.com/max/1396/1*9lc6ysu-5NLbM5KRvWULWg.png">
+</p>
+
