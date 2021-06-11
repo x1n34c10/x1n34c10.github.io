@@ -1,3 +1,4 @@
+![mrrobot](https://user-images.githubusercontent.com/69093629/121690679-6ca4b100-cac6-11eb-8658-fe68a76a6298.jpg)
 ---
 title: "Resolución de la maquina Mr Robot (TryHackMe)"
 layout: single
@@ -87,7 +88,7 @@ A primera vista parece que no tiene nada interesante, pero si nos fijamos bien v
 Lo que está censurado es un hash en base64, lo decodifique para ver que era.
 
 <p align="center">
-<img src="https://miro.medium.com/max/2216/1*_VMPLosVJDXS1daAzUUXKw.jpeg">
+<img src="https://user-images.githubusercontent.com/69093629/121690695-71696500-cac6-11eb-90d5-7ebd21512c2a.jpg">
 </p>
 
 Tenía un usuario y una contraseña en texto claro, lo primero que pensé era en probar a autenticarme en el panel de login de WordPress.
