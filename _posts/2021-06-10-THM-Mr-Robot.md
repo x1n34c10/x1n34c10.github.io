@@ -1,4 +1,3 @@
-![mrrobot](https://user-images.githubusercontent.com/69093629/121690679-6ca4b100-cac6-11eb-8658-fe68a76a6298.jpg)
 ---
 title: "Resolución de la maquina Mr Robot (TryHackMe)"
 layout: single
