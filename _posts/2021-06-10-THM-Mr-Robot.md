@@ -18,6 +18,10 @@ tags:
   - Plugins
 ---
 
+<p align="center">
+<img src="https://miro.medium.com/max/2560/1*3yAt-rTNioMtt1csleEAdw.jpeg">
+</p>
+
 En este articulo explicare la resolución de la maquina Mr Robot de (TryHackMe).
 
 La maquina cuenta con una dificultad media en la intrusión y media en la escalada de privilegios.
