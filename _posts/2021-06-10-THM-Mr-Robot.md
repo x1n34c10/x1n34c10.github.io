@@ -60,7 +60,7 @@ Hice un FUZZ a la web para ver si contiene algún directorio potencial para atac
 <img src="https://miro.medium.com/max/875/1*c1i7Ap5-k3ivEBfv-UyuIw.png">
 </p>
 
-**Gobuster** me encontró destinos directorios, entre ellos uno llamado “**login**”, accedí a él y me encontré con esto:
+**Gobuster** me encontró distintos directorios, entre ellos uno llamado “**login**”, accedí a él y me encontré con esto:
 
 <p align="center">
 <img src="https://miro.medium.com/max/3682/1*Us3ptTWox6WSoh1EBCql7w.png">
