@@ -6,7 +6,7 @@ date: 2021-06-11
 ---
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/69093629/121718391-8e139600-cae2-11eb-812a-da87ebb67c41.png">
+<img src="https://user-images.githubusercontent.com/69093629/121718793-f95d6800-cae2-11eb-91c8-3482dc4863f1.png">
 </p>
 
 ¿Quién puede preferir la segunda marca de detergentes? La primera es mucho mejor. Pero bueno voy a presentarme, soy WackyH4cker, un entusiasta de la Ciberseguridad y el Hacking ético, tengo 16 años y este es mi email pa' que me doxees @gmail.
