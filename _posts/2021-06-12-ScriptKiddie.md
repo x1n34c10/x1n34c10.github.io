@@ -16,8 +16,9 @@ tags:
 ---
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/69093629/121781072-6c2e1800-cba3-11eb-8049-597f54a08b1c.jpg">
+<img src="https://user-images.githubusercontent.com/69093629/121781844-f1ff9280-cba6-11eb-99f9-1b60d31ee219.jpg">
 </p>
+
 | Informacion   | Resultados    | 
 | ------------- |:-------------:| 
 | MACHINE RATING     | ★★★★   |
