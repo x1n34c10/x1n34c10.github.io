@@ -16,7 +16,7 @@ tags:
 ---
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/69093629/121774633-966fdd80-cb83-11eb-8487-b04899f020a1.png">
+<img src="https://user-images.githubusercontent.com/69093629/121781072-6c2e1800-cba3-11eb-8049-597f54a08b1c.jpg">
 </p>
 
 ![Captura de pantalla (500)](https://user-images.githubusercontent.com/69093629/121773974-bef5d880-cb7f-11eb-9991-ffa9f7add5c5.png)
