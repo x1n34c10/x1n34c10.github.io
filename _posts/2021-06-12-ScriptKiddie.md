@@ -19,7 +19,6 @@ tags:
 <img src="https://user-images.githubusercontent.com/69093629/121781072-6c2e1800-cba3-11eb-8049-597f54a08b1c.jpg">
 </p>
 
-
 | Informacion   | Resultados    | 
 | ------------- |:-------------:| 
 | MACHINE RATING:     | ★★★★   |
