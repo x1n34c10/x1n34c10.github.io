@@ -19,8 +19,15 @@ tags:
 <img src="https://user-images.githubusercontent.com/69093629/121781072-6c2e1800-cba3-11eb-8049-597f54a08b1c.jpg">
 </p>
 
-![Captura de pantalla (500)](https://user-images.githubusercontent.com/69093629/121773974-bef5d880-cb7f-11eb-9991-ffa9f7add5c5.png)
-![Captura de pantalla (498)](https://user-images.githubusercontent.com/69093629/121773472-7983dc00-cb7c-11eb-8622-6b99a8ea4679.png)
+Estadísticas de la máquina:
+
+| Informacion   | Resultados    | 
+| ------------- |:-------------:| 
+| MACHINE RATING     | ★★★★   |
+| USER OWNS     | 13689 👤      |   
+| SYSTEM OWNS | 9787 #          |  
+|  RELEASE DATE |  125 Days 📅  |
+| MACHINE CREATOR | 0xdf |
 
 Empece haciendo un escaneo con Nmap para ver que puertos y servicios tenía corriendo el servidor.
 
