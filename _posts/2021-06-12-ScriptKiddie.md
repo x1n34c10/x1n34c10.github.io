@@ -19,14 +19,6 @@ tags:
 <img src="https://user-images.githubusercontent.com/69093629/121781844-f1ff9280-cba6-11eb-99f9-1b60d31ee219.jpg">
 </p>
 
-| NAME  | ScriptKiddie    | 
-| ------------- |:-------------:| 
-| MACHINE RATING     | ★★★★   |
-| USER OWNS     | 13689 👤      |   
-| SYSTEM OWNS | 9787 #          |  
-|  RELEASE DATE |  125 Days 🗓  |
-| MACHINE CREATOR | 0xdf |
-
 Empece haciendo un escaneo con Nmap para ver que puertos y servicios tenía corriendo el servidor.
 
 ```bash
@@ -50,6 +42,14 @@ Read data files from: /usr/bin/../share/nmap
 Nmap done: 1 IP address (1 host up) scanned in 13.12 seconds
            Raw packets sent: 65641 (2.888MB) | Rcvd: 65543 (2.622MB)
 ``` 
+
+| NAME  | ScriptKiddie    | 
+| ------------- |:-------------:| 
+| MACHINE RATING     | ★★★★   |
+| USER OWNS     | 13689 👤      |   
+| SYSTEM OWNS | 9787 #          |  
+|  RELEASE DATE |  125 Days 🗓  |
+| MACHINE CREATOR | 0xdf |
 
 Una vez finalizado el escaneo, hice otro escaneo para saber la versión que corría de los puertos 22 y 5000.
 
