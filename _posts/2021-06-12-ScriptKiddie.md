@@ -22,11 +22,11 @@ tags:
 
 | Informacion   | Resultados    | 
 | ------------- |:-------------:| 
-| MACHINE RATING     | ★★★★   |
-| USER OWNS     | 13689 👤      |   
-| SYSTEM OWNS | 9787 #          |  
-|  RELEASE DATE |  125 Days 📅  |
-| MACHINE CREATOR | 0xdf |
+| MACHINE RATING:     | ★★★★   |
+| USER OWNS:     | 13689 👤      |   
+| SYSTEM OWNS: | 9787 #          |  
+|  RELEASE DATE: |  125 Days 📅  |
+| MACHINE CREATOR: | 0xdf |
 
 Empece haciendo un escaneo con Nmap para ver que puertos y servicios tenía corriendo el servidor.
 
