@@ -10,7 +10,7 @@ header:
   teaser_home_page: true
   icon: "https://miro.medium.com/max/2560/1*3yAt-rTNioMtt1csleEAdw.jpeg"
 categories:
-  - Write Up
+  - TryHackMe
 tags:
   - Wordpress
   - Fuzzing
