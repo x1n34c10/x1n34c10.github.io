@@ -98,7 +98,6 @@ Me encontré con el siguiente repositorio.
 Me lo descargue.
 
 ```bash
-
 wget https://raw.githubusercontent.com/nikhil1232/CVE-2020-7384/main/CVE-2020-7384.sh
 
 --2021-06-12 11:33:41--  https://raw.githubusercontent.com/nikhil1232/CVE-2020-7384/main/CVE-2020-7384.sh
@@ -137,7 +136,7 @@ En */home/pwn* me encontré un script llamado scanlosers.sh, vi que es lo que ha
 
 ![Captura de pantalla (514)](https://user-images.githubusercontent.com/69093629/121785788-203b9d00-cbbc-11eb-8c35-9088ee75e64f.png)
 
-Estaba declarando la variable log con una ruta absoluta del sistema */home/kid/logs/hackers*, después accede a */home/pwn*, hace un filtro de *log* tras eso ejecuta una sesión de Nmap concatenando la variable *ip* y finalmente hace una comparación de "si es mayor que 0" las líneas que contiene la variable *log*.
+Estaba declarando la variable log con una ruta absoluta del sistema */home/kid/logs/hackers*, después accede a */home/pwn*, hace un filtro de *log*, tras eso ejecuta una sesión de Nmap concatenando la variable *ip* y finalmente hace una comparación de "si es mayor que 0" las líneas que contiene la variable *log*.
 Me dirigí a */home/kid/logs/hackers* y comencé a probar inyecciones de comandos basándonos en la programación del script, hasta que logre dar con uno que me ejecutaba el comando que quería, forzaba la ejecución del siguiente comando haciendo uso de ";" y el comando que yo quería, el output lo redirigía al hackers que era donde apuntaba el script, también he comentado lo siguiente para que no haya ningún problema, ejecute el comando *whoami* como prueba y la respuesta fue pwn (**el archivo hackers no tenía capacidad de lectura**).
 
 ![Captura de pantalla (515)](https://user-images.githubusercontent.com/69093629/121786129-419d8880-cbbe-11eb-8da4-584cfb15c165.png)
