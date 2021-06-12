@@ -16,10 +16,10 @@ tags:
   - Fuzzing
   - RCE
   - Plugins
----
+--
 
 <p align="center">
-<img src="https://miro.medium.com/max/2560/1*3yAt-rTNioMtt1csleEAdw.jpeg">
+<img src="https://user-images.githubusercontent.com/69093629/121780471-bc57ab00-cba0-11eb-9562-b282694e98a3.jpg">
 </p>
 
 En este articulo explicare la resolución de la maquina Mr Robot de (TryHackMe).
