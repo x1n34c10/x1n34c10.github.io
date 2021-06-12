@@ -98,7 +98,8 @@ Me encontré con el siguiente repositorio.
 Me lo descargue.
 
 ```bash
-wget https://raw.githubusercontent.com/nikhil1232/CVE-2020-7384/main/CVE-2020-7384.sh
+┌─[root@parrot]─[/home/wackyhacker/Desktop]
+└──╼ wget https://raw.githubusercontent.com/nikhil1232/CVE-2020-7384/main/CVE-2020-7384.sh
 
 --2021-06-12 11:33:41--  https://raw.githubusercontent.com/nikhil1232/CVE-2020-7384/main/CVE-2020-7384.sh
 Resolviendo raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.109.133, 185.199.110.133, 185.199.111.133, ...
