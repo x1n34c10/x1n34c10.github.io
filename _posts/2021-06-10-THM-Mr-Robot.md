@@ -1,5 +1,5 @@
 ---
-title: "Resolución de la maquina Mr Robot (TryHackMe)"
+title: "TryHackMe - MrRobot"
 layout: single
 excerpt: En este articulo explicare la resolución de la maquina Mr Robot de (TryHackMe). La maquina cuenta con una dificultad media en la intrusión y media en la escalada de privilegios.
 header:
