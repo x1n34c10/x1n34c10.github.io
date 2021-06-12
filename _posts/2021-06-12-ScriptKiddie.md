@@ -1,14 +1,14 @@
 ---
 title: "HackTheBox - ScriptKiddie"
 layout: single
-excerpt: Para el articulo de hoy, tengo pensado enseñar en que consiste una inyección de código malicioso HTML, o mas conocida como “HTML injection”. Antes de iniciar con la explotación de esta vulnerabilidad, que esta tan presente en los servidores web, voy a hacer un corto resumen de ¿Qué es HTML? y ¿Para que sirve?.
+excerpt: Este es el "Write-Up" de la máquina **ScriptKiddie** de la plataforma HackTheBox, una máquina bastante interesante y creativa por parte del creador...
 header:
 show_date: true
 classes: wide
 header:
-  teaser: "https://user-images.githubusercontent.com/69093629/121774633-966fdd80-cb83-11eb-8487-b04899f020a1.png"
+  teaser: "https://user-images.githubusercontent.com/69093629/121781844-f1ff9280-cba6-11eb-99f9-1b60d31ee219.jpg"
   teaser_home_page: true
-  icon: "https://user-images.githubusercontent.com/69093629/121774633-966fdd80-cb83-11eb-8487-b04899f020a1.png"
+  icon: "https://user-images.githubusercontent.com/69093629/121781844-f1ff9280-cba6-11eb-99f9-1b60d31ee219.jpg"
 categories:
   - HackTheBox
 tags:
