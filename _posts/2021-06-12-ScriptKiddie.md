@@ -19,7 +19,7 @@ tags:
 <img src="https://user-images.githubusercontent.com/69093629/121781844-f1ff9280-cba6-11eb-99f9-1b60d31ee219.jpg">
 </p>
 
-| Name   | ScriptKiddie    | 
+| NAME  | ScriptKiddie    | 
 | ------------- |:-------------:| 
 | MACHINE RATING     | ★★★★   |
 | USER OWNS     | 13689 👤      |   
