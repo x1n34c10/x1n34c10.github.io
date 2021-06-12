@@ -142,7 +142,7 @@ Me dirigí a */home/kid/logs/hackers* y comencé a probar inyecciones de comando
 
 ![Captura de pantalla (515)](https://user-images.githubusercontent.com/69093629/121786129-419d8880-cbbe-11eb-8da4-584cfb15c165.png)
 
-Ahora lo que faltaba era entablar una reverse shell por Netcat.
+Ahora lo que fala es entablar una reverse shell por Netcat.
 
 ![Captura de pantalla (516)](https://user-images.githubusercontent.com/69093629/121786245-e7e98e00-cbbe-11eb-977d-a96dc36a99a3.png)
 
