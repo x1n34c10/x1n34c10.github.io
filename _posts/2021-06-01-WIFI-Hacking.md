@@ -18,7 +18,7 @@ tags:
 ---
 
 <p align="center">
-<img src="https://miro.medium.com/max/1875/1*eFAO_PfEpLHCDtMTyrrrbg.png">
+<img src="https://user-images.githubusercontent.com/69093629/121780166-7221fa00-cb9f-11eb-87c7-381e8acec6cc.jpg">
 </p>
 
 En este articulo, nos centraremos en aprender como se pueden vulnerar Redes WI-FI con cifrado WPA/WPA2-PSK, y conseguir la contraseña de la misma. Para ello, os enseñare unos cuantos ataques muy interesantes que podéis efectuar siempre y cuando sea en un entrono controlado.
