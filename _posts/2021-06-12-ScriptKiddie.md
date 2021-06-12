@@ -18,14 +18,13 @@ tags:
 <p align="center">
 <img src="https://user-images.githubusercontent.com/69093629/121781072-6c2e1800-cba3-11eb-8049-597f54a08b1c.jpg">
 </p>
-
 | Informacion   | Resultados    | 
 | ------------- |:-------------:| 
-| MACHINE RATING:     | ★★★★   |
-| USER OWNS:     | 13689 👤      |   
-| SYSTEM OWNS: | 9787 #          |  
-|  RELEASE DATE: |  125 Days 📅  |
-| MACHINE CREATOR: | 0xdf |
+| MACHINE RATING     | ★★★★   |
+| USER OWNS     | 13689 👤      |   
+| SYSTEM OWNS | 9787 #          |  
+|  RELEASE DATE |  125 Days 📅  |
+| MACHINE CREATOR | 0xdf |
 
 Empece haciendo un escaneo con Nmap para ver que puertos y servicios tenía corriendo el servidor.
 
