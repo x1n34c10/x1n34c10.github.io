@@ -138,15 +138,15 @@ En */home/pwn* me encontré un script llamado scanlosers.sh, vi que es lo que ha
 ![Captura de pantalla (514)](https://user-images.githubusercontent.com/69093629/121785788-203b9d00-cbbc-11eb-8c35-9088ee75e64f.png)
 
 Estaba declarando la variable log con una ruta absoluta del sistema */home/kid/logs/hackers*, después accede a */home/pwn*, hace un filtro de *log*, tras eso ejecuta una sesión de Nmap concatenando la variable *ip* y finalmente hace una comparación de "si es mayor que 0" las líneas que contiene la variable *log*.
-Me dirigí a */home/kid/logs/hackers* y comencé a probar inyecciones de comandos basándonos en la programación del script, hasta que logre dar con uno que me ejecutaba el comando que quería, forzaba la ejecución del siguiente comando haciendo uso de ";" y el comando que yo quería, el output lo redirigía al hackers que era donde apuntaba el script, también he comentado lo siguiente para que no haya ningún problema, ejecute el comando *whoami* como prueba y la respuesta fue pwn (**el archivo hackers no tenía capacidad de lectura**).
+Me dirigí a */home/kid/logs/hackers* y comencé a probar inyecciones de comandos basándonos en la programación del script, hasta que logre dar con uno que me ejecutaba el comando que quería, forzaba la ejecución del siguiente comando haciendo uso de ";" y el comando que yo quería, el output lo redirigí al archivo hackers que era donde apuntaba el script, también he comentado lo siguiente para que no haya ningún problema, ejecute el comando *whoami* como prueba y la respuesta fue pwn (**el archivo hackers no tenía capacidad de lectura**).
 
 ![Captura de pantalla (515)](https://user-images.githubusercontent.com/69093629/121786129-419d8880-cbbe-11eb-8da4-584cfb15c165.png)
 
-Ahora lo que fala es entablar una reverse shell por Netcat.
+Me entablé una reverse shell por Netcat.
 
 ![Captura de pantalla (516)](https://user-images.githubusercontent.com/69093629/121786245-e7e98e00-cbbe-11eb-977d-a96dc36a99a3.png)
 
-Ya somos el usuario pwn, hay que escalar privilegios, verifique si podía ejecutar algo como ROOT y por mi sorpresa tenía la capacidad de ejecutar el binario de Metasploit como el usuario ROOT, tan solo ejecuté ```sudo``` más el binario de Metasploit en */root/root.txt* estaba la *flag*.
+Y me convertí en el usuario pwn, solo faltaba escalar privilegios, verifique si podía ejecutar algo como ROOT y por mi sorpresa tenía la capacidad de ejecutar el binario de Metasploit como el usuario ROOT, tan solo ejecuté ```sudo``` más el binario de Metasploit en */root/root.txt* estaba la *flag*.
 
 ![Captura de pantalla (517)](https://user-images.githubusercontent.com/69093629/121786348-9e4d7300-cbbf-11eb-9bd3-f036886b4e55.jpg)
 
