@@ -1,5 +1,5 @@
 ---
-title: "HackTheBox - ArcheType (SP)"
+title: "HackTheBox - ArcheType"
 layout: single
 excerpt: En esta ocasión traigo el Write Up de la máquina ArcheType de HackTheBox, a mi parecer es una máquina notable para personas que están empezando en Directorio Activo y el hacking en Windows.
 header:
