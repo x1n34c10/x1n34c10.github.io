@@ -43,14 +43,6 @@ Nmap done: 1 IP address (1 host up) scanned in 13.12 seconds
            Raw packets sent: 65641 (2.888MB) | Rcvd: 65543 (2.622MB)
 ``` 
 
-| NAME  | ScriptKiddie    | 
-| ------------- |:-------------:| 
-| MACHINE RATING     | ★★★★   |
-| USER OWNS     | 13689 👤      |   
-| SYSTEM OWNS | 9787 #          |  
-|  RELEASE DATE |  125 Days 🗓  |
-| MACHINE CREATOR | 0xdf |
-
 Una vez finalizado el escaneo, hice otro escaneo para saber la versión que corría de los puertos 22 y 5000.
 
 ```bash
