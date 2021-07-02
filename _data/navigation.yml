@@ -2,13 +2,13 @@
 main:
   - title: "Home"
     url: /
-  - title: "Whoami"
-    url: /whoami/
   - title: "Artículos"
     url: /year-archive/
-  - title: "Buscador"
-    url: /buscador/
-  - title: "Etiquetas"
-    url: /tags/
   - title: "Categorías"
     url: /categories/
+  - title: "Etiquetas"
+    url: /tags/
+  - title: "Buscador"
+    url: /buscador/
+  - title: "Whoami"
+    url: /whoami/ 
