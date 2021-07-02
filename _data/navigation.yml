@@ -2,8 +2,8 @@
 main:
   - title: "Home"
     url: /
-  - title: "About"
-    url: /about/
+  - title: "Whoami"
+    url: /whoami/
   - title: "Artículos"
     url: /year-archive/
   - title: "Buscador"
