@@ -1,7 +1,7 @@
 ---
 layout: splash
 title: "Información del autor"
-permalink: /Whoami/
+permalink: /whoami/
 date: 2021-06-11
 ---
 
