@@ -6,9 +6,9 @@ header:
 show_date: true
 classes: wide
 header:
-  teaser: "https://user-images.githubusercontent.com/69093629/123459641-da80ca80-d5e6-11eb-9ef2-b75ede7e2427.jpg"
+  teaser: "https://user-images.githubusercontent.com/69093629/124369575-53c69000-dc6d-11eb-83db-4b4caea04ddc.png"
   teaser_home_page: true
-  icon: "https://user-images.githubusercontent.com/69093629/123459641-da80ca80-d5e6-11eb-9ef2-b75ede7e2427.jpg"
+  icon: "https://user-images.githubusercontent.com/69093629/124369575-53c69000-dc6d-11eb-83db-4b4caea04ddc.png"
 categories:
   - HackTheBox
 tags:
@@ -17,7 +17,7 @@ tags:
 ---
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/69093629/123459641-da80ca80-d5e6-11eb-9ef2-b75ede7e2427.jpg">
+<img src="https://user-images.githubusercontent.com/69093629/124369575-53c69000-dc6d-11eb-83db-4b4caea04ddc.png">
 </p>
 
 Empece haciendo un escaneo con Nmap para ver que puertos y servicios tiene corriendo la máquina.
