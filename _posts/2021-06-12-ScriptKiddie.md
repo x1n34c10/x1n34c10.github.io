@@ -6,9 +6,9 @@ header:
 show_date: true
 classes: wide
 header:
-  teaser: "https://user-images.githubusercontent.com/69093629/121801513-f6c05700-cc37-11eb-8588-be69ce952ec7.jpg"
+  teaser: "https://user-images.githubusercontent.com/69093629/124383644-d2531a00-dccd-11eb-9c08-fca9e5557500.png"
   teaser_home_page: true
-  icon: "https://user-images.githubusercontent.com/69093629/121801513-f6c05700-cc37-11eb-8588-be69ce952ec7.jpg"
+  icon: "https://user-images.githubusercontent.com/69093629/124383644-d2531a00-dccd-11eb-9c08-fca9e5557500.png"
 categories:
   - HackTheBox
 tags:
@@ -16,7 +16,7 @@ tags:
 ---
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/69093629/121801513-f6c05700-cc37-11eb-8588-be69ce952ec7.jpg">
+<img src="https://user-images.githubusercontent.com/69093629/124383644-d2531a00-dccd-11eb-9c08-fca9e5557500.png">
 </p>
 
 Empece haciendo un escaneo con Nmap para ver que puertos y servicios tenía corriendo el servidor.
