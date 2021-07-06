@@ -16,7 +16,7 @@ tags:
 ---
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/69093629/124676358-b06cb980-debe-11eb-9449-cbad1a4e00e6.png">
+<img src="https://user-images.githubusercontent.com/69093629/124676571-10fbf680-debf-11eb-975d-7e2aa7e95deb.png">
 </p>
 
 Empece haciendo un escaneo con Nmap para ver que puertos y servicios tenía corriendo el servidor.
