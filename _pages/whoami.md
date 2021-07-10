@@ -9,78 +9,47 @@ date: 2021-06-11
 <!DOCTYPE html>
 <html>
 <head>
- 
-<style>
-  /*Inspired by Kevin Powell,
-must use monospace font*/
-
-:root {
-  --number-of-characters: 21;
-}
-body {
-  font-family: 'Roboto Mono', monospace;
-  display: -ms-grid;
-  display: grid;
-  place-content: center;
-  height: 100vh;
-}
-h1 {
-  position: relative;
-  display: inline-block;
-}
-h1::before, h1::after {
-  position: absolute;
-  content: '';
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-}
-h1::before {
-  background: white;
-  opacity: 1;
-  -webkit-animation: typewriter 4s steps(var(--number-of-characters)) 2s forwards;
-          animation: typewriter 4s steps(var(--number-of-characters)) 2s forwards;
-}
-h1::after {
-  width: 3px;
-  background: black;
-  -webkit-animation: typewriter 4s steps(var(--number-of-characters)) 2s forwards,
-    blink 1.3s steps(var(--number-of-characters)) infinite;
-          animation: typewriter 4s steps(var(--number-of-characters)) 2s forwards,
-    blink 1.3s steps(var(--number-of-characters)) infinite;
-}
-@-webkit-keyframes typewriter {
-  to {
-    left: 100%;
-  }
-}
-@keyframes typewriter {
-  to {
-    left: 100%;
-  }
-}
-@-webkit-keyframes blink {
-  0%  {background: black;}
-  49%  {background: black;}
-  50%  {background: transparent;}
-  100%  {background: transparent;}
-}
-@keyframes blink {
-  0%  {background: black;}
-  49%  {background: black;}
-  50%  {background: transparent;}
-  100%  {background: transparent;}
+  <style>
+    body{
+  background: #000;
+  padding: 100px 0 0 20px;
 } 
-  </style>
-<h1>Hi I'm WackyH4cker and I like computers.</h1>
 
-<title>Title of the document</title>
+p{
+  font-family: "Courier";
+  color: lime; 
+  font-size: 20px;
+  
+  width: 600px; /* ou 30em*/
+  white-space: nowrap;
+  overflow: hidden;
+  animation: linha1 4s steps(50, end);
+}
+
+p:nth-child(2){
+  animation: linha2 4s steps(50, end);
+}
+
+span{
+  animation: pisca 1s infinite;
+}
+
+@keyframes linha1{ 
+  from { width: 0; } 
+} 
+
+@keyframes linha2{
+  0%{width: 0;}
+  25%{width: 0;}
+  100%{ width: 100; } 
+} 
+
+@keyframes pisca{
+  to{opacity: 0%;}
+}
+ </style>
+ <p>h4ck3d bY:</p>
+ <p>@WackyH4cker, Ooops all files encrypted!!! <span>|</span></p>
 </head>
-
-<body>
-The content of the document......
-</body>
-
 </html>
 
