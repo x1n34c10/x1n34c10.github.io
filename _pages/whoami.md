@@ -6,7 +6,6 @@ date: 2021-06-11
 ---
 
 
-<!DOCTYPE html>
 <html>
 <head>
   <style>
