@@ -5,9 +5,9 @@ permalink: /whoami/
 date: 2021-06-11
 ---
 
-
 <html>
-<head>
+ <head>
+  <div>
   <p>h4ck3d bY:</p>
   <p>@WackyH4cker, Ooops all files encrypted!!! <span>|</span></p>
   <style>
@@ -48,7 +48,8 @@ span{
 @keyframes pisca{
   to{opacity: 0%;}
 }
- </style>
-</head>
+    </style>
+   </div>
+ </head>
 </html>
 
