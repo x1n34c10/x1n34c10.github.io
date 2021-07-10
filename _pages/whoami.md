@@ -5,7 +5,11 @@ permalink: /whoami/
 date: 2021-06-11
 ---
 
+
+<!DOCTYPE html>
+<html>
 <head>
+ 
 <style>
   /*Inspired by Kevin Powell,
 must use monospace font*/
@@ -70,4 +74,13 @@ h1::after {
 } 
   </style>
 <h1>Hi I'm WackyH4cker and I like computers.</h1>
+
+<title>Title of the document</title>
 </head>
+
+<body>
+The content of the document......
+</body>
+
+</html>
+
