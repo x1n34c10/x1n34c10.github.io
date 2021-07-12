@@ -5,9 +5,9 @@ excerpt: "Una máquina muy interesante la cual resolvemos en mi canal de YouTube
 date: 2020-01-31
 classes: wide
 header:
-  teaser: /assets/images/htb-writeup-europa/europa_logo.png
+  teaser: https://user-images.githubusercontent.com/69093629/124976982-3e1be680-e030-11eb-9848-5bad5cb9fd4d.png
   teaser_home_page: true
-  icon: /assets/images/hackthebox.webp
+  icon: https://user-images.githubusercontent.com/69093629/124976982-3e1be680-e030-11eb-9848-5bad5cb9fd4d.png
 categories:
   - HackTheBox
   - Autopwn
