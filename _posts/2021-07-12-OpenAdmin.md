@@ -107,7 +107,7 @@ Lo ejecuté dando los parámetros que me solicitaba y me otorgo una Shell.
 
 ![ona](https://user-images.githubusercontent.com/69093629/125318381-141d3980-e33a-11eb-90ca-69ba380e259d.png)
 
-Esta Shell no me permitía hacer un tratamiento de la `TTY` y encima no funcionaba muy bien, por lo que pensé en entablarme una reverse Shell por netcat desde la que tenía.
+Esta Shell no me permitía hacer un tratamiento de la `TTY`  y encima no funcionaba para volver directorios atras y permanecer, porque te ejecuta un comando y se reinicia, por lo que pensé en entablarme una reverse Shell por netcat desde la que tenía.
 
 ![netcat](https://user-images.githubusercontent.com/69093629/125318568-3f078d80-e33a-11eb-93ea-f7ca3e763b0a.png)
 
