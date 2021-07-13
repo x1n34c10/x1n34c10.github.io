@@ -1,5 +1,5 @@
 ---
-title: "HackTheBox - OpenAdmin"
+title: "OpenAdmin - HackTheBox"
 layout: single
 excerpt: OpenAdmin, una máquina Linux bastante divertida de resolver, lo que más me gusto fue la intrusión y la escalada de privilegios.
 header:
