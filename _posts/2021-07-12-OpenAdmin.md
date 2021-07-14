@@ -8,7 +8,7 @@ classes: wide
 header:
   teaser: "https://user-images.githubusercontent.com/69093629/125315417-67da5380-e337-11eb-844d-ab46b6686a1a.png"
   teaser_home_page: true
-  icon: "https://user-images.githubusercontent.com/69093629/125315417-67da5380-e337-11eb-844d-ab46b6686a1a.png"
+  icon: "https://user-images.githubusercontent.com/69093629/125662338-fd8b3b19-3a48-4fb0-b07c-86c047265082.png"
 categories:
   - HackTheBox
 tags:
