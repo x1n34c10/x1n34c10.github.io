@@ -25,6 +25,10 @@
       {% endif %}
     </h2>
     {% include page__meta.html type=include.type %}
-    {% if post.excerpt %}<p class="archive__item-excerpt" itemprop="description" style="margin-bottom: 35px;">{{ post.excerpt | markdownify | strip_html | truncate: 160 }}</p>{% endif %}
+    {% if post.excerpt %}<p class="archive__item-excerpt" itemprop="description" style="margin-bottom: 80px;">{% if post.header.teaser_home_page %}<img src="{{ post.header.teaser }}" alt="" style="float: right;margin-right:10px; margin-left:20px; bottom:50px; height:120px; position: relative;">{% endif %}{{ post.excerpt | markdownify | strip_html | truncate: 1024 }}</p>{% endif %}
+    <i class="fas fa-tags"></i>
+    {% for tag in post.tags %}
+      <a href="/tags/#{{ tag }}" class="page__meta btn" rel="tag">{{ tag }}</a>
+    {% endfor %}
   </article>
 </div>
