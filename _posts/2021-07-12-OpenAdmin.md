@@ -1,7 +1,7 @@
 ---
 title: "OpenAdmin - HackTheBox"
 layout: single
-excerpt: OpenAdmin, una máquina Linux bastante divertida de resolver, lo que más me gusto fue la intrusión y la escalada de privilegios.
+excerpt: "Esta máquina es de dificultad fácil, me gusto más la intrusión al aprovecharme de un panel de control vulnerable llamado OpenNetAdmin, use un exploit que te explotaba la vulnerabilidad del panel y te garantizaba ejecución remota de código arbitrario. Esta vez la escalada fue bastante sencilla de completar, al hacer `sudo -l` me permitía como cualquier usuario ejecutar el binario de `nano` a un archivo llamado `priv`."
 header:
 show_date: true
 classes: wide
