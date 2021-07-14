@@ -12,7 +12,9 @@ header:
 categories:
   - HackTheBox
 tags:
-  - Write Up
+  - smbclient
+  - extractports
+  - crackmapexec
   - Starting Point
 ---
 
@@ -147,7 +149,7 @@ Service detection performed. Please report any incorrect results at https://nmap
 # Nmap done at Mon Jun 14 00:45:58 2021 -- 1 IP address (1 host up) scanned in 65.42 seconds
 ```
 
-Al parecer habian muchos puertos de Samba abiertos, quise verificar si tenia acceso mediante smbclient haciendo uso de una sesion nula.
+Al parecer habian muchos puertos de Samba abiertos, quise verificar si tenia acceso mediante `smbclient` haciendo uso de una sesion nula.
 
 ```bash 
 ┌─[root@parrot]─[/home/wackyhacker/Desktop]
