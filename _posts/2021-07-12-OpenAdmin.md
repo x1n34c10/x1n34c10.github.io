@@ -12,7 +12,10 @@ header:
 categories:
   - HackTheBox
 tags:
-  - Write Up
+  - OpenNetAdmin
+  - gobuster
+  - linpeas
+  - ssh2john
 ---
 
 <p align="center">
