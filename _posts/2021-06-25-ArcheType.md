@@ -1,7 +1,7 @@
 ---
 title: "ArcheType - HackTheBox"
 layout: single
-excerpt: En esta ocasión traigo el Write Up de la máquina ArcheType de HackTheBox, a mi parecer es una máquina notable para personas que están empezando en Directorio Activo y el hacking en Windows.
+excerpt: "Esta máquina es un 'Starting Point', me gusto más la intrusión, me aproveche de un archivo DTS con código XML en el recurso compartido backups que tenía credenciales de autenticación en texto claro, me conecte con mssqclient y logre RCE mediante código PowerShell, me entable una reverse Shell, para la escalada de privilegios encontré un archivo en una ruta con credenciales, logre autenticarme con winexe."
 header:
 show_date: true
 classes: wide
@@ -261,9 +261,7 @@ La "flag" del usuario estaba en "C:\Users\sql_svc\Desktop\user.txt".
 
 ![Captura de pantalla (589)](https://user-images.githubusercontent.com/69093629/123467247-9266a580-d5f0-11eb-8ff9-9e9f4657ab06.jpg)
 
-# Escalada de privilegios
-
-Tras una pequeña investigacion en el sistema logre encontrar un archivo que contenia un contraseña, la ruta es "C:\Users\sql_svc\AppData\Roaming\Microsoft\Windows\Powershell\PSReadLine".
+Tras una pequeña investigacion en el sistema logre encontrar un archivo que contenia una contraseña en texto claro, la ruta es "C:\Users\sql_svc\AppData\Roaming\Microsoft\Windows\Powershell\PSReadLine".
 
 Vi con CrackMapExec que privilegios tenia. 
 
