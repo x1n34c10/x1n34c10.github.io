@@ -1,5 +1,5 @@
 ---
-title: "ScriptKiddie - HackTheBozx"
+title: "ScriptKiddie - HackTheBox"
 layout: single
 excerpt: Este es el "Write-Up" de la máquina **ScriptKiddie** de la plataforma HackTheBox, una máquina bastante interesante y creativa por parte del creador...
 header:
