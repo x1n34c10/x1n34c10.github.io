@@ -1,7 +1,7 @@
 ---
 title: "ArcheType - HackTheBox"
 layout: single
-excerpt: "Esta máquina es un 'Starting Point', me gusto más la intrusión, me aproveche de un archivo DTS con código XML en el recurso compartido backups que tenía credenciales de autenticación en texto claro, me conecte con mssqclient y logre RCE mediante código PowerShell, me entable una reverse Shell, para la escalada de privilegios encontré un archivo en una ruta con credenciales, logre autenticarme con winexe."
+excerpt: "Esta máquina es un 'Starting Point', me gusto más la intrusión, me aproveche de un archivo DTS con código XML en el recurso compartido backups que tenía credenciales de autenticación en texto claro, me conecte con mssqclient y logre RCE mediante código PowerShell, me entable una reverse Shell, para la escalada de privilegios encontré un archivo en una ruta del sistema con credenciales, logre autenticarme con winexe."
 header:
 show_date: true
 classes: wide
