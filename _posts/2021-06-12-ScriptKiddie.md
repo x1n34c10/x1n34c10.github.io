@@ -1,7 +1,7 @@
 ---
 title: "ScriptKiddie - HackTheBox"
 layout: single
-excerpt: Este es el "Write-Up" de la máquina **ScriptKiddie** de la plataforma HackTheBox, una máquina bastante interesante y creativa por parte del creador...
+excerpt: "Esta es una máquina de dificultad fácil, me gusto más la intrusión, para su intrusión me aproveché de un campo de subida de archivo, hice uso de un script que te creaba la plantilla maliciosa, la subí me puse en escucha con netcat y gane una Shell. Para la escalada de privilegios utilicé el comando sudo -l y como todo los usuarios me permitía ejecutar el binario de Metasploit."
 header:
 show_date: true
 classes: wide
