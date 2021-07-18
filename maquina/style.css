@@ -1,141 +1,112 @@
-/* Primary */
-*, *::after, *::before {
-	box-sizing: border-box;
+body{
+  background: -webkit-radial-gradient(white 0%, #dadada 75%);
+  background: -o-radial-gradient(white 0%, #dadada 75%);
+  background: -moz-radial-gradient(white 0%, #dadada 75%);
+  background: radial-gradient(white 0%, #dadada 75%);
+  height:100vh;
+  overflow:hidden;
+}
+*:focus{
+  outline:none;
+}
+h2{
+  font-family: 'Titillium Web', sans-serif;
+  font-size:35px;
+  text-align:center;
+  text-transform:uppercase;
+  color: #afafaf;
+}
+h3{
+  font-family: 'Titillium Web', sans-serif;
+  font-size:20px;
+  text-align:center;
+  cursor:pointer;
+  text-transform:uppercase;
+  margin-top:-40px;
+  color: #cccccc;
 }
 
-html {
-	font-size: 62.5%;
+button{
+  background:#0277bd;
+  overflow: hidden;
+  border:none;
+  width:200px;
+  height:60px;
+  border-radius:9px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  cursor:pointer;
 }
 
-body {
-	font-size: 1.6rem;
-	font-family: sans-serif;
-	color: #fff;
-	background: #1F1F1F;
+button span{
+    text-transform: uppercase;
+    font-family: 'Titillium Web', sans-serif;
+    color: white;
+    transition: 0.1s;
+    font-size: 20px;
+    position: fixed;
+    transform: translateX(-50%) translateY(-50%);
+    opacity:1;
+}
+button:active{
+  background:#0399e4;
 }
 
-a {
-	text-decoration: none;
+button:active  span{
+  font-size:23px;
 }
 
-/* Button and the icon */
-section {
-	width: 100%;
-	height: 100vh;
-	display: table;
+.active button{
+   background: #0399e5 !important; 
+}
+.active span{
+  opacity:0;
+  transition:0.7s;
+  transition-delay: 0.9s;
+  animation-timing-function: ease-out;
 }
 
-.center {
-	display: table-cell;
-	vertical-align: middle;
-	text-align: center;
+.active svg{
+    width: 24px;
+    margin: 18px auto;
+    animation: icona;
+    animation-iteration-count: 1;
+    animation-duration: 1.4s;
+    display:block; 
+    animation-timing-function: ease-out;
+    opacity:1;
+} 
+
+@keyframes icona { 
+      0% {opacity:0;}
+    90% {opacity:0;height: 15px;margin: 25px auto;} 
+    100% {opacity:1;height: 25px;} 
 }
 
-.trigger {
-	position: relative;
-	background: #4a1942;
-	display: inline-block;
-	width: 200px;
-	height: 60px;
-	border-radius: 50em;
-	box-shadow: 0 2px 20px rgba(0,0,0,0.7), inset 0 1px 0 rgba(255,255,255,0.2);
-	color: #fff;
+.active div{
+  width: 200px;
+  height: 60px;
+  margin: -30px -6px;
+  z-index: -1;
+  position: absolute;
+  background: #0399e5;
+  animation: loading;
+  animation-duration: 0.5s; 
+  animation-delay: 0.3s;
+  animation-iteration-count: 1;
+  animation-timing-function: cubic-bezier(1,.27,.52,.67);
+  
 }
 
-span, em, i {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	left: 0;
-	/*background: yellow;
-	opacity: .5;*/
+@keyframes loading {
+      0% {width:0px;margin: -30px -6px;}
+      10% {width:10px;}
+      20% {width:30px;} 
+    100% {width: 200px;background: #0399e5;margin: -30px -6px;} 
 }
 
-em, i {
-	transition: top 0.3s;
-}
-
-span {
-	/*
-	uncomment this to see where actually the
-	Download and SVG located on initial state
-	and on hover
-	*/
-	overflow: hidden;
-}
-
-em {
-	line-height: 60px; /*make the button text vertically center of the button*/
-	top: 0;
-}
-
-i {
-	top: 100%; /*moving out the SVG to the bottom on page loads*/
-  padding-top:20px;
-}
-
-i::before {
-  content: "\f019";
-  font-family: FontAwesome;
-  font-size: 2rem;
-}
-
-.trigger:hover em {
-	top: -100%; /* move the Download text to the top*/
-}
-
-.trigger:hover i {
-	top: 0;
-}
-
-/*Tooltip*/
-.trigger::before,
-.trigger::after {
-	position: absolute;
-	opacity: 0; /*hide on page load*/
-	visibility: hidden; /*to stop interaction when user hover on top of the button*/
-	transition: all 0.3s;
-}
-
-.trigger::before {
-	content: "File size: 50M";
-	width: 140px;
-	height: 60px;
-	line-height: 60px; /*to make the text vertically center*/
-	background: #4A1942;
-	border-radius: 0.25em;
-	bottom: 90px;
-	left: calc(50% - 70px); /*take the left size of the box and pull it left by 70px (half of the box's width) referencing .trigger element as the base*/
-}
-
-/*the triangle below the `File size` box*/
-.trigger::after {
-	content: "";
-	width: 0;
-	height: 0;
-	border: 10px solid transparent;
-	/*
-	each border side is 10px width
-	this makes the square 20px width in total
-	left to center = 10px
-	center to right = 10px
-	*/
-	border-top-color: #4A1942;
-	left: calc(50% - 10px); /*take the left size of the box and pull it left by 10px (half of the box's width) referencing .trigger element as the base*/
-	bottom: 70px;
-}
-
-.trigger:hover::before,
-.trigger:hover::after {
-	opacity: 1;
-	visibility: visible;
-}
-
-/*pull down effect for the `File size` box when we hover the button*/
-.trigger:hover::before {
-	bottom: 80px;
-}
-
-.trigger:hover::after {
-	bottom: 60px;
+button svg{
+    display:none;
 }
