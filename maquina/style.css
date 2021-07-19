@@ -1,117 +1,102 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-body{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background: #050801;
-    font-family: 'Raleway', sans-serif;
-    font-weight: bold;
-}
-a{
-    position: relative;
-    display: inline-block;
-    padding: 25px 30px;
-    margin: 40px 0;
-    color: #03e9f4;
-    text-decoration: none;
-    text-transform: uppercase;
-    transition: 0.5s;
-    letter-spacing: 4px;
-    overflow: hidden;
-    margin-right: 50px;
-   
-}
-a:hover{
-    background: #03e9f4;
-    color: #050801;
-    box-shadow: 0 0 5px #03e9f4,
-                0 0 25px #03e9f4,
-                0 0 50px #03e9f4,
-                0 0 200px #03e9f4;
-     -webkit-box-reflect:below 1px linear-gradient(transparent, #0005);
-}
-a:nth-child(1){
-    filter: hue-rotate(270deg);
-}
-a:nth-child(2){
-    filter: hue-rotate(110deg);
-}
-a span{
-    position: absolute;
-    display: block;
-}
-a span:nth-child(1){
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg,transparent,#03e9f4);
-    animation: animate1 1s linear infinite;
-}
-@keyframes animate1{
-    0%{
-        left: -100%;
-    }
-    50%,100%{
-        left: 100%;
-    }
-}
-a span:nth-child(2){
-    top: -100%;
-    right: 0;
-    width: 2px;
-    height: 100%;
-    background: linear-gradient(180deg,transparent,#03e9f4);
-    animation: animate2 1s linear infinite;
-    animation-delay: 0.25s;
-}
-@keyframes animate2{
-    0%{
-        top: -100%;
-    }
-    50%,100%{
-        top: 100%;
-    }
-}
-a span:nth-child(3){
-    bottom: 0;
-    right: 0;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(270deg,transparent,#03e9f4);
-    animation: animate3 1s linear infinite;
-    animation-delay: 0.50s;
-}
-@keyframes animate3{
-    0%{
-        right: -100%;
-    }
-    50%,100%{
-        right: 100%;
-    }
-}
+$dark-color: #333a4d;
 
-
-a span:nth-child(4){
-    bottom: -100%;
-    left: 0;
-    width: 2px;
-    height: 100%;
-    background: linear-gradient(360deg,transparent,#03e9f4);
-    animation: animate4 1s linear infinite;
-    animation-delay: 0.75s;
+.clear {
+  clear: both;
 }
-@keyframes animate4{
-    0%{
-        bottom: -100%;
-    }
-    50%,100%{
-        bottom: 100%;
-    }
+body {
+  margin: 0;
+  padding: 0;
+}
+main {
+  background: $dark-color;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.liveDemo__link {
+  color: #fafafa;
+  font-family: sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  margin: 16px 0;
+  display: block;
+}
+p {
+  line-height: 1.5;
+  color: #545454;
+  font-weight: 100;
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+}
+/*MESSAGE */
+.message_cont {
+  padding: 15px 30px 20px;
+  background: #fafafa;
+  border-radius: 10px;
+  width: calc(50% - 30px);
+  box-sizing: border-box;
+  border: 2px solid #eee;
+  float: left;
+  margin: 30px 15px;
+  min-height: 475px;
+  max-width: 400px;
+}
+.message {
+  margin: 5px 0 15px;
+}
+.message_title {
+  font-weight: 600 !important;
+  padding: 0;
+  margin: 5px 5px 15px;
+}
+.message_blurb {
+  position: relative;
+  background: #003A79;
+  padding: 15px;
+  border-radius: 10px;
+  width: max-content;
+  max-width: 90%;
+}
+.message_blurb::before {
+  content: '';
+  position: absolute;
+  border-right: 15px solid #003A79;
+  border-left: 20px solid transparent;
+  border-top: 30px solid transparent;
+  transform: rotate(80deg) skew(-0.06turn, 18deg);
+  left: 25px;
+  width: 0;
+  height: 0;
+  top: -30px;
+}
+.message:nth-of-type(even) .message_blurb {
+  background: #ddd;
+  float: right;
+  position: relative;
+}
+.message:nth-of-type(even) .message_blurb::before {
+  border-right: 15px solid #ddd;
+  left: calc(100% - 60px);
+  top: 0;
+  transform: rotate(211deg) skew(-0.06turn, 38deg);
+}
+.message_title_rt {
+  text-align: right;
+}
+.message:nth-of-type(even) .message_blurb p {
+  color: #545454;
+  font-weight: 400;
+}
+.message_blurb p {
+  color: #fff;
+  font-weight: 400;
+  margin: 0;
+}
+@media screen and (max-width: 695px) {
+  .message_cont {
+    width: calc(100% - 32px); 
+    margin: 0 32px;
+  }
 }
