@@ -123,11 +123,11 @@ author:
 footer:
   links:
     - label: "Twitter"
-      icon: "Twitter"
-      url: ""
+      icon: "fab fa-fw fa-twitter-square"
+      url: "https://twitter.com/WEIK14356918"
     - label: "Facebook"
       icon: "fab fa-fw fa-facebook-square"
-      url: "https://twitter.com/WEIK14356918"
+      # url:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/wackyhacker"
