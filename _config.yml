@@ -30,7 +30,7 @@ masthead_title           : # overrides the website title displayed in the masthe
 breadcrumbs              : true # true, false (default)
 words_per_minute         : 200
 comments:
-  provider               : "utterances" # "disqus" #, "discourse", "facebook", "staticman", "staticman_v2", "utterances", "custom"
+  provider               : "giscus" # "disqus" #, "discourse", "facebook", "staticman", "staticman_v2", "utterances", "custom"
   disqus:
     shortname            : # "https-wackyhacker-github-io"
   discourse:
@@ -41,8 +41,8 @@ comments:
     num_posts            : # 10 
     colorscheme          : # "light" (default), "dark"
   utterances:
-    theme                : "github-dark" # "github-light" (default), "github-dark"
-    issue_term           : "pathname" # "pathname" (default)
+    theme                :  # "github-light" (default), "github-dark"
+    issue_term           :  # "pathname" (default)
   staticman:
     branch               : # "master"
     endpoint             : # "https://{your Staticman v3 API}/v3/entry/github/"
