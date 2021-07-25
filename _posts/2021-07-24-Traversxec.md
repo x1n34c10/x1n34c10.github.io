@@ -47,7 +47,7 @@ Nmap done: 1 IP address (1 host up) scanned in 0.96 seconds
        	Raw packets sent: 2002 (88.064KB) | Rcvd: 4 (156B)
 ```
 
-Efectue otro escaneo para verificar la version y servicio de cada puerto encontrado.
+Efectúe otro escaneo para verificar la versión y servicio de cada puerto encontrado.
 
 ```bash 
 ┌─[root@parrot]─[/home/wackyhacker/Desktop]
@@ -71,27 +71,27 @@ Service detection performed. Please report any incorrect results at https://nmap
 Nmap done: 1 IP address (1 host up) scanned in 18.42 seconds
 ```
 
-Vi que el servidor web corria un servicio llamado `nostromo`, eso me llamo la atencion por lo que recurri a ver si habia alguna version vulnerable y encontre el siguiente exploit.
+Vi que el servidor web corría un servicio llamado `nostromo`, eso me llamo la atención por lo que recurrí a ver si había alguna versión vulnerable y encontré el siguiente exploit.
 
 ![Captura de pantalla (659)](https://user-images.githubusercontent.com/69093629/126877395-67a38c00-0e95-44ca-8aea-3c5ae5e33910.png)
 
-Su uso fue sencillo, le especifique la ip y el puerto por dondo corria el servidor y el comando que queria ejecutar.
+Su uso fue sencillo, le especifiqué la IP y el puerto por dónde corría el servidor y el comando que quería ejecutar.
 
 ![rce](https://user-images.githubusercontent.com/69093629/126877425-672ccd58-f4e1-4a0d-a530-4eb42dc8d553.png)
 
-Ya tenia la ejecucion de codigo arbirtrario, me entable un shell inverso por el puerto 443 haciendo uso de `mkfifo`.
+Ya tenía la ejecución de código arbitrario, me entablé un Shell inverso por el puerto 443 haciendo uso de `mkfifo`.
 
 ![mkfifo](https://user-images.githubusercontent.com/69093629/126877472-1b4ea9dd-c8f0-4423-803c-34cc5914e72a.png)
 
-Tambien hice un tratamiento de la `TTY` para tener un full shell interactiva y manejarme mas comodamente.
+También hice un tratamiento de la `TTY` para tener un full Shell interactivo y manejarme más cómodamente.
 
 ![tratamiento de la tty](https://user-images.githubusercontent.com/69093629/126877763-ab10f4a5-d16c-4a53-af02-9c784d9e4ef3.png)
 
-Tras una pequeña investigacion logre encontrar un archivo que me dio mucha informacion para el siguiente paso.
+Tras una pequeña investigación logré encontrar un archivo que me dio mucha información para el siguiente paso.
 
 ![archivo](https://user-images.githubusercontent.com/69093629/126877546-9d3cd5b1-8414-4708-b87c-6bad7cba8238.png)
 
-Primero le hice un cat a una ruta que me reportaba que me llamo la atencion, tenia una credencial hasheda, la crackee con `john the ripper`.
+Primero le hice un cat a una ruta que me reportaba que me llamo la atención, tenía una credencial hasheda, la crackee con `john the ripper`.
 
 ```bash
 ┌─[root@parrot]─[/home/wackyhacker/Desktop]
@@ -108,15 +108,15 @@ Use the "--show" option to display all of the cracked passwords reliably
 Session completed
 ```
  
-Pense que era la contraseña del usaurio `david` pero no, viendo el archivo tambien me reportaba un `public_www`, tras una busqueda en `Google` logre dar con la conclusion de que se trataba de un directorio en el servidor web, pude acceder desde la shell que ya tenia y encontré un archivo llamado `backup-ssh-identity-files.tgz`.
+Pensé que era la contraseña del usuario `david` pero no, viendo el archivo también me reportaba un `public_www`, tras una búsqueda en `Google` logre dar con la conclusión de que se trataba de un directorio en el servidor web, pude acceder desde la Shell que ya tenía y encontré un archivo llamado `backup-ssh-identity-files.tgz`.
 
 ![backups](https://user-images.githubusercontent.com/69093629/126877684-859b5c6d-ce93-4a5f-a897-6f245d1d18e5.png)
 
-Me lo tranferi con `netcat` para ver que es lo que tenia. 
+Me lo transferí con `netcat` para ver que es lo que tenía.
 
 ![usandonetcat](https://user-images.githubusercontent.com/69093629/126877698-e6f127bc-f123-4cf1-bc1f-1c657c0f575d.png)
 
-Lo descomprimi con `7z` y encontré una `id_rsa`, una clave de acceso a `ssh`.
+Lo descomprimí con `7z` y encontré una `id_rsa`, una clave de acceso a `ssh`.
 
 ![id_rsa](https://user-images.githubusercontent.com/69093629/126877810-4e2bb17a-6b1e-41e8-a284-74baf5c16b40.png)
 
@@ -146,19 +146,19 @@ hunter       	(?)
 Session completed
 ```
 
-Me la consiguio crackear, le di permisos 600 a la `id_rsa` y accedi con ella haciendo uso de la contraseña crackeada, ya pude visualizar la flag del usuario.
+Me la consiguió crackear, le di permisos 600 a la `id_rsa` y accedí con ella haciendo uso de la contraseña crackeada, ya pude visualizar la "flag" del usuario.
 
 ![flagdelusuario](https://user-images.githubusercontent.com/69093629/126877894-9e3ee2db-8068-4d07-a07c-f70c1a72d844.jpg)
 
-Para la escalada de privilegios encontré un script que llamado `server-stats.sh` que ejecutar `journalctl` con prilegios de `sudo`.
+Para la escalada de privilegios encontré un script que llamado `server-stats.sh` que ejecutar `journalctl` con privilegios de `sudo`.
 
 ![scriptjournal](https://user-images.githubusercontent.com/69093629/126877934-04d8043d-2028-4b83-be0c-65cdc24ae5f8.png)
 
-Me dirigí a [gftobins](https://gftobins.github.io) y filtre por `journalctl` para ver si podia aprovecharme para escalar.
+Me dirigí a [gftobins](https://gftobins.github.io) y filtré por `journalctl` para ver si podía aprovecharme para escalar.
 
 ![sudoengftobins](https://user-images.githubusercontent.com/69093629/126877969-0b373f52-acae-485f-9e13-c69095c274b1.png)
 
-Al parecer sí, lo que hice fue ejecutar `journalctl` seguido de la sintaxis del script y eliminando el `/usr/bin/cat` porque tenia que ser en formato `lees` o `more`, minimice la terminal y ejecute `!/bin/sh` y me convertí en `root`, ya pude visualizar la flag.
+Al parecer sí, lo que hice fue ejecutar `journalctl` seguido de la sintaxis del script y eliminando el `/usr/bin/cat` porque tenía que ser en formato `lees` o `more`, minimice la terminal y ejecute `!/bin/sh` y me convertí en `root`, ya pude visualizar la "flag".
 
 ![rut (1)](https://user-images.githubusercontent.com/69093629/126878038-5de15da2-952c-48d8-86ec-b95c5554b370.jpg)
 
