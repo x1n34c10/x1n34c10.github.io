@@ -150,7 +150,7 @@ Me la consiguió crackear, le di permisos 600 a la `id_rsa` y accedí con ella h
 
 ![flagdelusuario](https://user-images.githubusercontent.com/69093629/126877894-9e3ee2db-8068-4d07-a07c-f70c1a72d844.jpg)
 
-Para la escalada de privilegios encontré un script que llamado `server-stats.sh` que ejecutar `journalctl` con privilegios de `sudo`.
+Para la escalada de privilegios encontré un script llamado `server-stats.sh` que ejecuta `journalctl` con privilegios de `sudo`.
 
 ![scriptjournal](https://user-images.githubusercontent.com/69093629/126877934-04d8043d-2028-4b83-be0c-65cdc24ae5f8.png)
 
@@ -158,7 +158,7 @@ Me dirigí a [gftobins](https://gftobins.github.io) y filtré por `journalctl` p
 
 ![sudoengftobins](https://user-images.githubusercontent.com/69093629/126877969-0b373f52-acae-485f-9e13-c69095c274b1.png)
 
-Al parecer sí, lo que hice fue ejecutar `journalctl` seguido de la sintaxis del script y eliminando el `/usr/bin/cat` porque tenía que ser en formato `lees` o `more`, minimice la terminal y ejecute `!/bin/sh` y me convertí en `root`, ya pude visualizar la "flag".
+Al parecer sí, lo que hice fue ejecutar `journalctl` seguido de la sintaxis del script y eliminando el `/usr/bin/cat` porque tenía que ser en formato `lees` o `more`, minimice la terminal y escribí `!/bin/sh` y me convertí en `root`, ya pude visualizar la "flag".
 
 ![rut (1)](https://user-images.githubusercontent.com/69093629/126878038-5de15da2-952c-48d8-86ec-b95c5554b370.jpg)
 
