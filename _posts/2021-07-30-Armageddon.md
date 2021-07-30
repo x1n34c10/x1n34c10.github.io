@@ -22,7 +22,7 @@ tags:
 <img src="https://user-images.githubusercontent.com/69093629/127578411-06f106c9-6c72-48ef-80bf-5d57af26d261.png">
 </p>
 
-Comence efecuando un escaneo con `Nmap` para detectar puertos y servicios abiertos en el sistema.
+Comencé efectuando un escaneo con `Nmap` para detectar puertos y servicios abiertos en el sistema.
 
 ```bash 
 ┌──(root💀kali)-[/home/wackyh4cker/HTB/Armageddon]
@@ -48,7 +48,7 @@ Nmap done: 1 IP address (1 host up) scanned in 0.97 seconds
        	Raw packets sent: 1825 (80.276KB) | Rcvd: 1811 (72.436KB)
  ```
  
- Hice otro escaneo para detectar la version de cada servicio encontrado.
+ Hice otro escaneo para detectar la versión de cada servicio encontrado.
  
  ```bash 
 ┌──(root💀kali)-[/home/wackyh4cker/HTB/Armageddon]
@@ -77,39 +77,39 @@ Service detection performed. Please report any incorrect results at https://nmap
 Nmap done: 1 IP address (1 host up) scanned in 11.31 seconds
 ```
 
-Vi que tenia un servidor web, le eche un vistazo.
+Vi que tenía un servidor web, le eche un vistazo.
 
 ![armageddon](https://user-images.githubusercontent.com/69093629/127578672-548a6401-10d7-430d-a01c-835523da332f.png)
 
-Encontre un CMS de Drupal, pense en buscar si habia algun exploit y encontre el siguiente.
+Encontré un CMS de Drupal, pense en buscar si había algún exploit y encontré el siguiente.
 
 ![exploit](https://user-images.githubusercontent.com/69093629/127578743-4233e86c-f010-478e-96ec-558de362dbdf.png)
 
-Lo ejecute brindandole la url del sitio web y me otorgo ejecucion de codigo arbitrario.
+Lo ejecuté brindándole la URL del sitio web y me otorgo ejecución de código arbitrario.
 
 ![drupalgeddon2](https://user-images.githubusercontent.com/69093629/127578821-64748b45-715f-49ea-b03f-1a8a789a767a.png)
 
-Ahora solo faltaba entablarse una reverse shell para ganar acceso a la maquina, probe con una `reverse shell` de `bash` pero me detectaba un "bad character", por lo que tuve que hacer uso de una de `python`.
+Ahora solo faltaba entablarse una reverse Shell para ganar acceso a la máquina, probé con una `reverse shel`' de `bash` pero me detectaba un "bad character", por lo que tuve que hacer uso de una de `python`.
 
 ![entrada](https://user-images.githubusercontent.com/69093629/127578935-84be425c-c97e-4f50-9415-c7ce2b71ce73.png)
 
-Y recibi una conexion por `netcat`
+Y recibí una conexión por `netcat`
 
 ![reverseshell](https://user-images.githubusercontent.com/69093629/127578974-241fd99f-8b3f-4783-80d6-ac0d648f7737.png)
 
-Tras una pequeña investigacion en `Google` encontré que se guardan credenciales en un archivo llamado `settings.php`.
+Tras una pequeña investigación en `Google` encontré que se guardan credenciales en un archivo llamado `settings.php`.
 
 ![credencialesdrupal](https://user-images.githubusercontent.com/69093629/127579080-1bfebdce-534d-4b71-81e1-1f2f3992d6e4.png)
 
-Hice un filtrado por ese archivo con `find` y encontre credenciales.
+Hice un filtrado por ese archivo con `find` y encontré credenciales
 
 ![drupalcreds](https://user-images.githubusercontent.com/69093629/127579123-79d4bb64-5c8c-4d18-8ad7-fb7e86012ce8.png)
 
-Era un usuario y una contraseña, probe en `SSH` pero no funciono, pero cuando probe en `mysql` si funciono pero se me quedaba colgado, por lo que tuve que ejecutar la sentencia en un mismo comando, probe a listar las tablas.
+Era un usuario y una contraseña, probé en `SSH` pero no funciono, pero cuando probé en `mysql` si funciono, pero se me quedaba colgado, por lo que tuve que ejecutar la sentencia en un mismo comando, probé a listar las tablas.
 
 ![tables](https://user-images.githubusercontent.com/69093629/127579240-4228535d-4557-45ec-bcbf-81f197f88ba5.png)
 
-La tabla `users` me llamo la atencion por lo que seleccione `name` y `pass` de la columna `users` y me reporto un `hash`. 
+La tabla `users` me llamo la atención por lo que seleccione `name` y `pass` de la columna `users` y me reporto un `hash`. 
 
 ![hashdecontra (1)](https://user-images.githubusercontent.com/69093629/127579502-c8690364-ef70-4c36-a0bd-6f458cf0f5f3.png)
 
@@ -137,7 +137,7 @@ Ya pude visualizar la "flag" del usuario.
 
 ![flagdelusuario (2)](https://user-images.githubusercontent.com/69093629/127579644-4ec95b78-ef93-4fa2-b47b-f5694ec3cac3.jpg)
 
-Para la escalada de privielgios me permitia ejecutar `snap` con permisos `sudo`, busque en [gtfobins](https://gtfobins.github.io) y enconté que me podia aprovechar haciendo uso de `sudo`.
+Para la escalada de privilegios me permitía ejecutar `snap` con permisos `sudo`, busque en [gtfobins](https://gtfobins.github.io) y enconté que me podía aprovechar haciendo uso de `sudo`.
 
 ![Captura de pantalla (661)](https://user-images.githubusercontent.com/69093629/127579819-ada222e3-d01a-4b9f-bbe1-aeb66e3aedae.png)
 
@@ -148,11 +148,11 @@ Al ejecutar un comando me dio un problema que pude solucionar instalando la gema
 └─$ gem install fpm
 ```
 
-Ahora si me dejo crear el archivo `.snap` malicioso en mi maquina, hice que se ejecute `cat /root/root.txt` para ver la "flag" de `root`.
+Ahora si me dejo crear el archivo `.snap` malicioso en mí máquina, hice que se ejecute `cat /root/root.txt` para ver la "flag" de `root`.
         
 ![verlaflag](https://user-images.githubusercontent.com/69093629/127580026-55b17835-313b-4377-807b-9492dca7ca03.png)
 
-Una vez exportado a la maquina victima hice uso del comando que me permitia ejcutar `snap` con prilegios de `sudo` y seleccionando mi `.snap` seguido de los parametros `--dangerous` y `--devmode` y me reporto la "flag" en texto claro.
+Una vez exportado a la maquiná víctima hice uso del comando que me permitia ejcutar `snap` con prilegios de `sudo` y seleccionando mi `.snap` seguido de los parametros `--dangerous` y `--devmode` y me reporto la "flag" en texto claro.
 
 ![laflag](https://user-images.githubusercontent.com/69093629/127580209-10840b2e-8a23-477f-a3aa-1a582f79aab1.jpg)
 
