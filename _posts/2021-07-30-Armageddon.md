@@ -12,10 +12,10 @@ header:
 categories:
   - HackTheBox
 tags:
-  - smbclient
-  - extractports
-  - crackmapexec
-  - Starting Point
+  - mysql
+  - Drupal
+  - snap
+  - SSH
 ---
 
 <p align="center">
