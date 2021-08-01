@@ -1,7 +1,7 @@
 ---
 title: "TheNotebook - HackTheBox"
 layout: single
-excerpt: "Esta es una máquina de dificultad media, para la intrusión mediante la cookie logre saber que estaba tratando con un ataque JWT, para romperlo me cree una cookie nueva tirando desde mi clave publica por un servidor por Python y cambio de panel, tenía una opción de subir de archivos, cree una reverse Shell y la subí, para la escalada de privilegios me aproveche de una versión vulnerable de Docker."
+excerpt: "Esta es una máquina de dificultad media, para la intrusión mediante la cookie logre saber que estaba tratando con un ataque JWT, para romperlo me cree una cookie nueva tirando desde mi clave privada por un servidor por Python y cambio de panel, tenía una opción de subir de archivos, cree una reverse Shell y la subí, para la escalada de privilegios me aproveche de una versión vulnerable de Docker."
 header:
 show_date: true
 classes: wide
@@ -86,13 +86,13 @@ Al parecer era un `JWT` o "JSON Web Token", copie la cookie y la pegue en [jwt.i
 
 ![jwtio](https://user-images.githubusercontent.com/69093629/127784670-55e9afce-d921-48ee-8db2-f2cde7935c9b.png)
 
-Al parecer se estaba comunicando con una `public key` en `localhost`, es decir que no tenia ningun tipo de acceso a ella, pense en crear la mia propia con `openssl` y que tire por la mia abriendo un servidor por `python`, emepece creando la clave publica con el siguiente comando.
+Al parecer se estaba comunicando con una `priv key` en `localhost`, es decir que no tenia ningun tipo de acceso a ella, pense en crear la mia propia con `openssl` y que tire por la mia abriendo un servidor por `python`, emepece creando la clave privada con el siguiente comando.
 
 ```bash
-openssl genrsa 2048
+openssl genrsa -out privKey.key 2048
 ``` 
 
-Abri un servidor por Python por el puerto por el que corria la `public key` de la victima, el `7070`, y cambie a mi direccion `IP` y puse `1` en `admin_cap` y pegue la mi `public key` abajo a la izquiera.
+Abri un servidor por Python por el puerto por el que corria la `priv key` de la victima, el `7070`, y cambie a mi direccion `IP` y puse `1` en `admin_cap` y pegue la mi `priv key` abajo a la izquiera.
 
 ![codigo ](https://user-images.githubusercontent.com/69093629/127784840-d48b22b0-a2a6-4aac-a821-1bf7a629f685.png)
 
