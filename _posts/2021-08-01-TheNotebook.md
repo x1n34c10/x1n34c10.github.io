@@ -17,6 +17,8 @@ tags:
   - SSH
 ---
 
+![image (35)](https://user-images.githubusercontent.com/69093629/127785730-5df9c84e-5046-4b86-978c-ff6870180800.png)
+
 Comence haciendo un escaneo con `Nmap` para detectar puertos abiertos.
 
 ```bash 
