@@ -146,7 +146,7 @@ Me lo traje y a mi maquina y modifique la linea que hacia la ejecucion de codigo
 
 Compile el exploit y lo transferi al servior victima, concretamente en la sesion de Docker, ejecute el exploit corriendo otra sesion de Docker a la vez que se este ejecutando el exploit.
 
-![descargarexploit](https://user-images.githubusercontent.com/69093629/127785618-dcfaceda-5eb8-49ad-ba77-fe95466bdf65.png)
+![descargarexploit (1) (1)](https://user-images.githubusercontent.com/69093629/127785892-1faeee6d-f798-4dad-9b86-6d4eadca10e4.png)
 
 Modifique la `x` del `/etc/passwd` y puse una contraseña creanda anteriormente con `openssl`, hice `sudo su` y puse la contraseña que me creo `openssl` y gane acceso con `root`, ya pude ver la "flag".
 
