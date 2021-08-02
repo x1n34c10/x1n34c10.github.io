@@ -12,8 +12,9 @@ header:
 categories:
   - HackTheBox
 tags:
-  - deserialization attack
-  - WordPress
+  - PHP
+  - Docker
+  - JWT
   - SSH
 ---
 
