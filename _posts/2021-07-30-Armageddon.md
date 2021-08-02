@@ -6,7 +6,7 @@ header:
 show_date: true
 classes: wide
 header:
-  teaser: "https://user-images.githubusercontent.com/69093629/127578411-06f106c9-6c72-48ef-80bf-5d57af26d261.png"
+  teaser: "https://user-images.githubusercontent.com/69093629/127804995-eba40d50-e9ad-43a8-bb7b-b88434fdad40.png"
   teaser_home_page: true
   icon: "https://user-images.githubusercontent.com/69093629/125662338-fd8b3b19-3a48-4fb0-b07c-86c047265082.png"
 categories:
@@ -19,7 +19,7 @@ tags:
 ---
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/69093629/127578411-06f106c9-6c72-48ef-80bf-5d57af26d261.png">
+<img src="https://user-images.githubusercontent.com/69093629/127804995-eba40d50-e9ad-43a8-bb7b-b88434fdad40.png">
 </p>
 
 Comencé efectuando un escaneo con `Nmap` para detectar puertos y servicios abiertos en el sistema.
