@@ -89,6 +89,13 @@
       position: sticky;
       top: 2em;
       float: right;
+
+      .toc {
+        .toc__menu {
+          overflow-y: auto;
+          max-height: calc(100vh - 7em);
+        }
+      }
     }
   }
 
@@ -284,7 +291,7 @@
     width: 0;
     border-style: solid;
     border-width: 0 10px 10px;
-    border-color: #000 transparent;
+    border-color: $background-color transparent;
     z-index: 1;
 
     @include breakpoint($large) {
@@ -343,4 +350,3 @@
     margin-right: initial;
   }
 }
-
