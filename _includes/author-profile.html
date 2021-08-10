@@ -7,10 +7,10 @@
     <div class="author__avatar">
       {% if author.home %}
         <a href="{{ author.home | relative_url }}">
-          <img src="{{ author.avatar | relative_url }}" alt="{{ author.name }}" itemprop="image" style="border-color: #000">
+          <img src="{{ author.avatar | relative_url }}" alt="{{ author.name }}" itemprop="image" style="border-color: rgb(0 0 0 / 12%)">
         </a>
       {% else %}
-        <img src="{{ author.avatar | relative_url }}" alt="{{ author.name }}" itemprop="image" style="border-color: #000">
+        <img src="{{ author.avatar | relative_url }}" alt="{{ author.name }}" itemprop="image" style="border-color: rgb(0 0 0 / 12%)">
       {% endif %}
     </div>
   {% endif %}
