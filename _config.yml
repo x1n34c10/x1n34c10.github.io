@@ -97,12 +97,12 @@ author:
   name             : "WackyHacker"
   avatar           : "https://raw.githubusercontent.com/WackyHacker/wackyhacker.github.io/master/logo1.png"
   bio              : "Cybersecurity enthusiast & lover of *CTF* challenges - **Red Team** 🔴"
-  location         : "sipaquemedoxees"
+  location         : ""
   email            :
   links:
-    - label: "Email"
-      icon: "fas fa-fw fa-envelope-square"
-      # url: "mailto:your.name@email.com"
+    - label: "Facebook"
+      icon: "fab fa-fw fa-facebook"
+      url: "https://www.facebook.com/profile.php?id=100071583765481"
     - label: "Website"
       icon: "fas fa-fw fa-link"
       # url: "https://your-website.com"
