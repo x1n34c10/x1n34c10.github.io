@@ -20,7 +20,7 @@ tags:
 
 ![image (35)](https://user-images.githubusercontent.com/69093629/127785730-5df9c84e-5046-4b86-978c-ff6870180800.png)
 
-Comence haciendo un escaneo con `Nmap` para detectar puertos abiertos.
+Comencé haciendo un escaneo con `Nmap` para detectar puertos abiertos.
 
 ```bash 
 ┌──(root💀kali)-[/home/wackyh4cker/HTB/TheNotebook]
@@ -47,7 +47,7 @@ Nmap done: 1 IP address (1 host up) scanned in 0.73 seconds
        	Raw packets sent: 1014 (44.592KB) | Rcvd: 1009 (40.356KB)
 ```
 
-Hice otro para detectar la version de cada puerto abierto encontrado.
+Hice otro para detectar la versión de cada puerto abierto encontrado.
 
 ```bash
 ┌──(root💀kali)-[/home/wackyh4cker/HTB/TheNotebook]
@@ -71,57 +71,57 @@ Service detection performed. Please report any incorrect results at https://nmap
 Nmap done: 1 IP address (1 host up) scanned in 11.04 seconds
 ```
 
-Tenia dos puertos abiertos, empece mirando por el servidor web, esto es lo que tenia.
+Tenía dos puertos abiertos, empece mirando por el servidor web, esto es lo que tenía.
 
 ![PaginaPrincipal](https://user-images.githubusercontent.com/69093629/127784555-be9394f6-a112-45ac-b968-e899bfe8c4af.png)
 
-Me registre y me redirigio a este panel.
+Me registré y me redirigió a este panel.
 
 ![accesoalpanel](https://user-images.githubusercontent.com/69093629/127784565-718e0d46-ffd0-434e-9970-739318080035.png)
 
-Cree una nota y probe distinatas inyecciones de codigo `html` y `js` pero no era vulnerable a `XSS` o `HTMLi`, probe a interceptar la peticion para ver como va todo por detras y encontre una cookie que me llamo la atencion.
+Cree una nota y probé distintas inyecciones de código `html` y `js` pero no era vulnerable a `XSS` o `HTMLi`, probé a interceptar la petición para ver como va todo por detrás y encontré una cookie que me llamo la atención.
 
 ![jwtcookie](https://user-images.githubusercontent.com/69093629/127784626-d6684b12-cd00-4841-a60d-cda619895db7.png)
 
-Al parecer era un `JWT` o "JSON Web Token", copie la cookie y la pegue en [jwt.io](https://jwt.io) para ver el formato `json` como se estaba tratando y encontre lo siguiente.
+Al parecer era un `JWT` o "JSON Web Token", copie la cookie y la pegue en [jwt.io](https://jwt.io) para ver el formato `json` como se estaba tratando y encontré lo siguiente.
 
 ![jwtio](https://user-images.githubusercontent.com/69093629/127784670-55e9afce-d921-48ee-8db2-f2cde7935c9b.png)
 
-Al parecer se estaba comunicando con una `priv key` en `localhost`, es decir que no tenia ningun tipo de acceso a ella, pense en crear la mia propia con `openssl` y que tire por la mia abriendo un servidor por `python`, emepece creando la clave privada con el siguiente comando.
+Al parecer se estaba comunicando con una `priv key` en `localhost`, es decir que no tenía ningún tipo de acceso a ella, pensé en crear la mía propia con `OpenSSL` y que tire por la mía abriendo un servidor por `Python`, empecé creando la clave privada con el siguiente comando.
 
 ```bash
 openssl genrsa -out privKey.key 2048
 ``` 
 
-Abri un servidor por Python por el puerto por el que corria la `priv key` de la victima, el `7070`, y cambie a mi direccion `IP` y puse `1` en `admin_cap` y pegue la mi `priv key` abajo a la izquiera.
+Abrí un servidor por `python` por el puerto por el que corría la `priv key` de la víctima, el `7070`, y cambie a mi dirección `IP` y puse `1` en `admin_cap` y pegue la mi `priv key` abajo a la izquierda.
 
 ![codigo ](https://user-images.githubusercontent.com/69093629/127784840-d48b22b0-a2a6-4aac-a821-1bf7a629f685.png)
 
-Copie cadena en `base64` y la sustitui por la cookie que me venia en la pagina.
+Copie cadena en `base64` y la sustitui por la cookie que me venía en la página.
 
 ![paneladminconseguido](https://user-images.githubusercontent.com/69093629/127784916-d01dd378-0ac6-4cb2-9ee1-7d5a494add28.png)
 
-Y cambio el panel, ahora habia una seccion que me permitia subir archivos.
+Y cambio el panel, ahora había una sección que me permitía subir archivos.
 
 ![uploadfiles](https://user-images.githubusercontent.com/69093629/127784939-95aaa155-21b1-4328-98ee-66c58794d699.png)
 
-Inmediatamente probe a subir una `reverse shell` en PHP, utilice una de `pentestmonkey`.
+Inmediatamente probé a subir una `reverse shell` en PHP, utilice una de `pentestmonkey`.
 
 ![subida](https://user-images.githubusercontent.com/69093629/127784972-88b14e18-19fb-45fc-9e7a-e2a5aea08dc0.png)
 
-Me dejo subirla, le di a `save` con una session de `netcat` corriendo por el puerto `443` y gane acceso a la maquina.
+Me dejo subirla, le di a `save` con una sesión de `netcat` corriendo por el puerto '443' y gané acceso a la máquina.
 
 ![reverseshell (1)](https://user-images.githubusercontent.com/69093629/127785005-a0a7153c-f609-4079-8ba6-ab006cff7e60.png)
 
-Hice un tratamiento de la `TTY`, investigando un poco en la maquina encontré un archivo llamado `home.tar.gz` que me llamo la atencion, por lo que pense en transferirmelo a mi maquina con `netcat`.
+Hice un tratamiento de la `TTY`, investigando un poco en la máquina encontré un archivo llamado `home.tar.gz` que me llamo la atención, por lo que pensé en transferírmelo a mí máquina con `netcat`.
 
 ![transferusingnmap](https://user-images.githubusercontent.com/69093629/127785044-0f98c96a-e111-4c53-bb96-4878f3e6057f.png)
 
-Descomprimiendolo vi que era el directorio `home`, dentro encontré una clave privada de `SSH`, una `id_rsa`, tambien tuve que enumerar el usuario en el que tenia que migrar y en la ruta que segui encontré un directorio llamado `noah`.
+Descomprimiéndolo vi que era el directorio `home`, dentro encontré una clave privada de `SSH`, una `id_rsa`, también tuve que enumerar el usuario en el que tenía que migrar y en la ruta que seguí encontré un directorio llamado `noah`.
 
 ![ypadentroconhome](https://user-images.githubusercontent.com/69093629/127785072-76c5a770-7284-47a9-ba7e-a8300a94fec1.png)
 
-Le di permisos `600` a la `id_rsa` y probe a conectrame con ella en `SSH` haciendo uso del usuario `noah` y funciono.
+Le di permisos `600` a la `id_rsa` y probé a conectarme con ella en `SSH` haciendo uso del usuario `noah` y funciono.
 
 ![ssshacceso](https://user-images.githubusercontent.com/69093629/127785391-bec76498-0971-405a-9f70-2c52ce270879.png)
 
@@ -129,27 +129,27 @@ Ya pude visualizar la "flag" del usuario.
 
 ![flagdelusuario (3)](https://user-images.githubusercontent.com/69093629/127785441-cdc9b061-7d1b-4a08-b252-ae66a8e78296.jpg)
 
-Ahora solo faltaba la escalada de privilegios, haciendo `sudo -l` vi que podia ejecutar Docker con privilegios de `sudo`.
+Ahora solo faltaba la escalada de privilegios, haciendo `sudo -l` vi que podía ejecutar Docker con privilegios de `sudo`.
 
 ![sudoguionele](https://user-images.githubusercontent.com/69093629/127785458-6b7c09ad-a0c9-49d2-924c-99da531f2a12.png)
 
-Lo ejecute añadiendo `bash` y consegui una sesion con Docker, pero esto no era la escalada, ya que solo estaba en un contenedor, mire la version de Docker.
+Lo ejecuté añadiendo `bash` y conseguí una sesión con Docker, pero esto no era la escalada, ya que solo estaba en un contenedor, mire la versión de Docker.
 
 ![dockerversion](https://user-images.githubusercontent.com/69093629/127785504-8970f5a3-4746-4710-8e71-e1837766edc3.png)
 
-Busque si habia algun exploit de esa version en Google y encontré el siguiente `PoC`.
+Busque si había algún exploit de esa versión en Google y encontré el siguiente `PoC`.
 
 ![pocdockerexploit](https://user-images.githubusercontent.com/69093629/127785520-25394cde-7733-416a-9ec6-f9bf94b0f215.png)
 
-Me lo traje y a mi maquina y modifique la linea que hacia la ejecucion de codigo, puse que le de permisos `777` al `/etc/passwd`.
+Me lo traje y a mí máquina y modifique la línea que hacia la ejecución de código, puse que le dé permisos `777` al `/etc/passwd`.
 
 ![modificandoetchosts](https://user-images.githubusercontent.com/69093629/127785669-327b2f5d-b0c4-4b7b-af24-403bf5e4ab4e.png)
 
-Compile el exploit y lo transferi al servior victima, concretamente en la sesion de Docker, ejecute el exploit corriendo otra sesion de Docker a la vez que se este ejecutando el exploit.
+Compile el exploit y lo transferí al servidor víctima, concretamente en la sesión de Docker, ejecute el exploit corriendo otra sesión de Docker a la vez que se esté ejecutando el exploit.
 
 ![descargarexploit (1) (1)](https://user-images.githubusercontent.com/69093629/127785892-1faeee6d-f798-4dad-9b86-6d4eadca10e4.png)
 
-Modifique la `x` del `/etc/passwd` y puse una contraseña creanda anteriormente con `openssl`, hice `sudo su` y puse la contraseña que me creo `openssl` y gane acceso con `root`, ya pude ver la "flag".
+Modifique la `x` del `/etc/passwd` y puse una contraseña creada anteriormente con `OpenSSL`, hice `sudo su` y puse la contraseña que me creo `OpenSSL` y gane acceso con `root`, ya pude ver la "flag".
 
 ![bashmenosoe (1)](https://user-images.githubusercontent.com/69093629/127785688-60e6f17c-073c-4f7e-9139-9387f8cb17a4.png)
 
