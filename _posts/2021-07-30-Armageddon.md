@@ -19,7 +19,7 @@ tags:
 ---
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/69093629/127804995-eba40d50-e9ad-43a8-bb7b-b88434fdad40.png">
+<img src="https://user-images.githubusercontent.com/69093629/129924671-d8937044-7ee4-4b35-8791-7c8261d5d903.png">
 </p>
 
 Comencé efectuando un escaneo con `Nmap` para detectar puertos y servicios abiertos en el sistema.
