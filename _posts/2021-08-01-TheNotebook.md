@@ -97,7 +97,7 @@ Abrí un servidor por `python` por el puerto por el que corría la `priv key` de
 
 ![codigo ](https://user-images.githubusercontent.com/69093629/127784840-d48b22b0-a2a6-4aac-a821-1bf7a629f685.png)
 
-Copie cadena en `base64` y la sustitui por la cookie que me venía en la página.
+Copie la cadena en `base64` y la sustitui por la cookie que me venía en la página.
 
 ![paneladminconseguido](https://user-images.githubusercontent.com/69093629/127784916-d01dd378-0ac6-4cb2-9ee1-7d5a494add28.png)
 
