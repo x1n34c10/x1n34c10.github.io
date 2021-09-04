@@ -7,7 +7,7 @@
 html {
   /* apply a natural box layout model to all elements */
   box-sizing: border-box;
-  background: linear-gradient(to right, black,#050d1a,black);
+  background: linear-gradient(to right, black,#010033,black);
   font-size: 12px;
 
   @include breakpoint($medium) {
