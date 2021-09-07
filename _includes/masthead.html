@@ -7,7 +7,19 @@
         {% unless logo_path == empty %}
           <a class="site-logo" href="/" style="font: italic bold 2em Georgia, Serif;
 text-shadow: -4px 3px 0 #0048d1, -14px 7px 0 #0000;">CTF's</a>
-        
+        {% endunless %}        
+        <ul class="visible-links">
+          {%- for link in site.data.navigation.main -%}
+            {%- if link.url contains '://' -%}
+              {%- assign url = link.url -%}
+            {%- else -%}
+              {%- assign url = link.url | relative_url -%}
+            {%- endif -%}
+            <li class="masthead__menu-item">
+              <a href="{{ url }}" {% if link.description %}title="{{ link.description }}"{% endif %}>{{ link.title }}</a>
+            </li>
+          {%- endfor -%}
+        </ul>
         {% if site.search == true %}
         <button class="search__toggle" type="button">
           <span class="visually-hidden">{{ site.data.ui-text[site.locale].search_label | default: "Toggle search" }}</span>
