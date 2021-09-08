@@ -150,6 +150,9 @@ Me la consiguió crackear, le di permisos 600 a la `id_rsa` y accedí con ella h
 
 ![flagdelusuario](https://user-images.githubusercontent.com/69093629/126877894-9e3ee2db-8068-4d07-a07c-f70c1a72d844.jpg)
 
+<hr>
+<h1 align="center"><b>ESCALADA DE PRIVILEGIOS</b></h1>
+
 Para la escalada de privilegios encontré un script llamado `server-stats.sh` que ejecuta `journalctl` con privilegios de `sudo`.
 
 ![scriptjournal](https://user-images.githubusercontent.com/69093629/126877934-04d8043d-2028-4b83-be0c-65cdc24ae5f8.png)
