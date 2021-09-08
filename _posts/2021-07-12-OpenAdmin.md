@@ -152,6 +152,9 @@ Ya pude visualizar la `flag` del usuario, ahora solo faltaba la escalada de priv
 
 ![user](https://user-images.githubusercontent.com/69093629/125322194-c9052580-e33d-11eb-96e0-3c2ca8a287d5.jpg)
 
+<hr>
+<h1 align="center"><b>ESCALADA DE PRIVILEGIOS</b></h1>
+
 Haciendo `sudo -l` como todos los usuarios me permitía ejecutar `nano` con `sudo` a un archivo llamado `priv`.
 
 ![priv](https://user-images.githubusercontent.com/69093629/125322700-56487a00-e33e-11eb-894f-c374c5c7ad74.png)
