@@ -129,6 +129,9 @@ Ya pude visualizar la "flag" del usuario.
 
 ![flagdelusuario (3)](https://user-images.githubusercontent.com/69093629/127785441-cdc9b061-7d1b-4a08-b252-ae66a8e78296.jpg)
 
+<hr>
+<h1 align="center"><b>ESCALADA DE PRIVILEGIOS</b></h1>
+
 Ahora solo faltaba la escalada de privilegios, haciendo `sudo -l` vi que podía ejecutar Docker con privilegios de `sudo`.
 
 ![sudoguionele](https://user-images.githubusercontent.com/69093629/127785458-6b7c09ad-a0c9-49d2-924c-99da531f2a12.png)
