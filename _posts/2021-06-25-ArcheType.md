@@ -261,6 +261,9 @@ La "flag" del usuario estaba en "C:\Users\sql_svc\Desktop\user.txt".
 
 ![Captura de pantalla (589)](https://user-images.githubusercontent.com/69093629/123467247-9266a580-d5f0-11eb-8ff9-9e9f4657ab06.jpg)
 
+<hr>
+<h1 align="center"><b>ESCALADA DE PRIVILEGIOS</b></h1>
+
 Tras una pequeña investigacion en el sistema logre encontrar un archivo que contenia una contraseña en texto claro, la ruta es "C:\Users\sql_svc\AppData\Roaming\Microsoft\Windows\Powershell\PSReadLine".
 
 Vi con CrackMapExec que privilegios tenia. 
