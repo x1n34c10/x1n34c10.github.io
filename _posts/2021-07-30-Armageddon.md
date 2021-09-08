@@ -140,7 +140,7 @@ Ya pude visualizar la "flag" del usuario.
 <hr>
 <h1 align="center"><b>ESCALADA DE PRIVILEGIOS</b></h1>
 
-Para la escalada de privilegios me permitía ejecutar `snap` con permisos `sudo`, busque en [gtfobins](https://gtfobins.github.io) y enconté que me podía aprovechar haciendo uso de `sudo`.
+Para la escalada de privilegios me permitía ejecutar `snap` con permisos `sudo`, busque en [gtfobins](https://gtfobins.github.io) y encontré que me podía aprovechar haciendo uso de `sudo`.
 
 ![Captura de pantalla (661)](https://user-images.githubusercontent.com/69093629/127579819-ada222e3-d01a-4b9f-bbe1-aeb66e3aedae.png)
 
