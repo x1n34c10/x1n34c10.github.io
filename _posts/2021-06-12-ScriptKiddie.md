@@ -125,6 +125,9 @@ Hice un tratamiento de la *TTY* para estar más cómodo.
 
 ![Captura de pantalla (512)](https://user-images.githubusercontent.com/69093629/121785592-f46be780-cbba-11eb-9a75-303212eb5eb1.png)
 
+<hr>
+<h1 align="center"><b>ESCALADA DE PRIVILEGIOS</b></h1>
+
 En */home/pwn* me encontré un script llamado scanlosers.sh, vi que es lo que hacía.
 
 ![Captura de pantalla (514)](https://user-images.githubusercontent.com/69093629/121785788-203b9d00-cbbc-11eb-8c35-9088ee75e64f.png)
